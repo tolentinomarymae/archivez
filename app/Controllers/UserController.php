@@ -10,4 +10,12 @@ class UserController extends BaseController
     {
         return view('index');
     }
+    public function register()
+    {
+        return view('signin-signup/register');
+    }
+    public function login()
+    {
+        return view('signin-signup/login');
+    }
 }
