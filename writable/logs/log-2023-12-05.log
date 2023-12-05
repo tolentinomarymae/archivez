@@ -20,3 +20,27 @@ in APPPATH\Views\signin-signup\register.php on line 44.
  7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
  9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\archivez_ci4_final_repo\\public\\index.php')
+CRITICAL - 2023-12-05 15:17:02 --> Invalid file: "studentdashoboard.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(216): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('studentdashoboard.php')
+ 2 SYSTEMPATH\Common.php(1190): CodeIgniter\View\View->render('studentdashoboard', [], true)
+ 3 APPPATH\Controllers\StudentDashboardController.php(11): view('studentdashoboard')
+ 4 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\StudentDashboardController->studentdashboard()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\StudentDashboardController))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\archivez_ci4_final_repo\\public\\index.php')
+CRITICAL - 2023-12-05 15:17:17 --> Invalid file: "/studentdashboard/top.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(216): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('/studentdashboard/top.php')
+ 2 SYSTEMPATH\View\View.php(469): CodeIgniter\View\View->render('/studentdashboard/top', null, true)
+ 3 APPPATH\Views\studentdashboard.php(1): CodeIgniter\View\View->include('/studentdashboard/top')
+ 4 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\archivez_ci4_final_repo\\app\\Views\\studentdashboard.php')
+ 5 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1190): CodeIgniter\View\View->render('studentdashboard', [], true)
+ 7 APPPATH\Controllers\StudentDashboardController.php(11): view('studentdashboard')
+ 8 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\StudentDashboardController->studentdashboard()
+ 9 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\StudentDashboardController))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\archivez_ci4_final_repo\\public\\index.php')
