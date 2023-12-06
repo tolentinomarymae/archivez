@@ -22,7 +22,7 @@
                                               <li><a href="#testimonials">How to Use</a></li>
                                               <li><a href="#contact">Contact</a></li>
 
-                                              <li class="button-header margin-left "><a href="/register" class="btn">Join</a></li>
+                                              <li class="button-header margin-left "><a href="/registerview" class="btn">Join</a></li>
                                               <li class="button-header"><a href="/logins" class="btn btn3">Log in</a></li>
                                           </ul>
                                       </nav>

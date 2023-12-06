@@ -55,7 +55,7 @@
 						</div>
 						<div class="text-center mb-2">
 							<div class="text-center mb-5 text-grey">Wala pang account?
-								<a class="register-link" href="/register">Gumawa ng account</a>
+								<a class="register-link" href="/registerview">Gumawa ng account</a>
 								<a href="/studentdashboard">dashboard</a>
 
 							</div>

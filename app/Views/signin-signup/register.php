@@ -29,19 +29,18 @@
 						<a href="/"><img src="<?= base_url() ?>signin/archivez3.png" width="150px"></a>
 					</div>
 					<div class="text-center mb-4">
-						<h4>Gumawa ng Bagong Account</h4>
-
+						<h4>Register new account</h4>
 					</div>
 					<!-- Form -->
 					<form action="/register" method="POST" class="px-3">
 						<!-- Input Box -->
 						<div class="form-input">
 							<span><i class="fa fa-user"></i></span>
-							<input type="text" name="first_name" placeholder="First Name" tabindex="10" required>
+							<input type="text" name="firstname" placeholder="First Name" tabindex="10" required>
 						</div>
 						<div class="form-input">
 							<span><i class="fa fa-user"></i></span>
-							<input type="text" name="last_name" placeholder="Last Name" tabindex="10" required>
+							<input type="text" name="lastname" placeholder="Last Name" tabindex="10" required>
 						</div>
 						<div class="form-input">
 							<select name="usertype" id="usertype" required>
@@ -59,7 +58,6 @@
 							<span><i class="fa fa-lock"></i></span>
 							<input type="password" name="password" placeholder="Password" required>
 						</div>
-
 
 						<!-- Login Button -->
 						<div class="mb-3">
