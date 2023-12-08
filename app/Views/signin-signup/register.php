@@ -15,11 +15,23 @@
 </head>
 
 <body>
+	<?php $page_session = \Config\Services::session(); ?>
 	<div class="container-fluid">
 		<div class="row ">
 			<!-- IMAGE CONTAINER BEGIN -->
 			<div class="col-lg-6 col-md-6 d-none d-md-block infinity-image-container"></div>
 			<!-- IMAGE CONTAINER END -->
+
+			<?php
+			if ($page_session->getTempdata('success')) :
+			?>
+				<div class="alert alert-success"><?= $page_session->getTempdata('success'); ?></div>
+			<?php endif; ?>
+			<?php
+			if ($page_session->getTempdata('error')) :
+			?>
+				<div class="alert alert-danger"><?= $page_session->getTempdata('error'); ?></div>
+			<?php endif; ?>
 
 			<!-- FORM CONTAINER BEGIN -->
 			<div class="col-lg-6 col-md-6 infinity-form-container">
@@ -66,8 +78,10 @@
 						<div class="text-right ">
 						</div>
 						<div class="text-center mb-2">
-							<div class="text-center mb-5 text-grey">Meron ng account?
-								<a class="register-link" href="/logins">Mag-log in</a>
+							<div class="text-center mb-5 text-grey">Already have an account?
+								<a class="register-link" href="/logins">Log in</a><br>
+								<a class="register-link" href="/">Back to Home</a>
+
 							</div>
 					</form>
 				</div>
@@ -77,6 +91,5 @@
 	</div>
 </body>
 
-<!-- Mirrored from techzeero.com/html-templates/login-forms/impressive-login-form/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 25 Nov 2023 07:53:51 GMT -->
 
 </html>

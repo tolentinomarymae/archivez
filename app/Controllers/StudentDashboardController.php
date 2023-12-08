@@ -14,8 +14,4 @@ class StudentDashboardController extends BaseController
     {
         return view('studentdashboardview/myprofile');
     }
-    public function researchoutputs()
-    {
-        return view('studentdashboardview/researchoutputs');
-    }
 }

@@ -7,6 +7,14 @@ use App\Models\UserModel;
 
 class UserController extends BaseController
 {
+    public $registermodel;
+    public $session;
+    public function __construct()
+    {
+        $registermodel = new UserModel();
+        $this->session = \Config\Services::session();
+    }
+
     public function index()
     {
         return view('index');
@@ -34,13 +42,17 @@ class UserController extends BaseController
         if ($this->validate($rules)) {
             $registermodel = new UserModel();
 
+            $uniid = md5(str_shuffle('abcdefghijklmnopqrstuvwxyz' . time()));
             $data = [
                 'firstname' => $this->request->getVar('firstname'),
                 'lastname' => $this->request->getVar('lastname'),
                 'usertype' => $this->request->getVar('usertype'),
                 'email' => $this->request->getVar('email'),
                 'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
+                'uniid' => $uniid,
+                'activation_date' => date("Y-m-d h:i:s")
             ];
+
 
             dd($registermodel);
 
@@ -48,6 +60,7 @@ class UserController extends BaseController
 
             return redirect()->to('/logins');
         } else {
+            $this->session->setTempdata('error', 'Sorry', 'Unable to create your account right now, Try again', 3);
             $data['validation'] = $this->validator;
             return view('signin-signup/register', $data);
         }

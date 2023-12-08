@@ -4,15 +4,15 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class UserModel extends Model
+class ResearchModel extends Model
 {
-    protected $table            = 'users';
+    protected $table            = 'research';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['firstname', 'lastname', 'usertype', 'email', 'password', 'created_at'];
+    protected $allowedFields    = ['researchtitle', 'submittedto', 'subject', 'author', 'idnumber', 'gradelevel', 'section', 'uploaddate', 'abstract', 'keywords', 'citation', 'status', 'file', 'user_id'];
 
     // Dates
     protected $useTimestamps = false;

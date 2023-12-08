@@ -13,7 +13,7 @@
 
               <ul class="navbar-nav flex-fill w-100 mb-2">
                   <li class="nav-item dropdown">
-                      <a href="#dashboard" aria-expanded="false" class="nav-link">
+                      <a href="/studentdashboard" aria-expanded="false" class="nav-link">
                           <i class="fe fe-home fe-16"></i>
                           <span class="ml-3 item-text">Dashboard</span><span class="sr-only">(current)</span>
                       </a>
@@ -29,9 +29,17 @@
               </ul>
               <ul class="navbar-nav flex-fill w-100 mb-2">
                   <li class="nav-item w-100">
-                      <a class="nav-link" href="/researchoutputs">
+                      <a class="nav-link" href="/researchpapers">
                           <i class="fe fe-book-open fe-16"></i>
                           <span class="ml-3 item-text">Research Outputs</span>
+                      </a>
+                  </li>
+              </ul>
+              <ul class="navbar-nav flex-fill w-100 mb-2">
+                  <li class="nav-item w-100">
+                      <a class="nav-link" href="/myresearchoutput">
+                          <i class="fe fe-book-open fe-16"></i>
+                          <span class="ml-3 item-text">My Research Outputs</span>
                       </a>
                   </li>
               </ul>
@@ -44,7 +52,7 @@
                   </li>
               </ul>
               <div class="btn-box w-100 mt-4 mb-1">
-                  <a href="" target="_blank" style="background-color: #b06dff; border: none;" class="btn mb-2 btn-primary btn-lg btn-block">
+                  <a href="/insertresearch" style="background-color: #b06dff; color: white; border: none;" class="btn mb-2 btn-lg btn-block">
                       <i class="fe fe-shopping-cart fe-12 mx-2"></i><span class="small">Add a Paper</span>
                   </a>
               </div>
