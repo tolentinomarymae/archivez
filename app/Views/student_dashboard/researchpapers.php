@@ -56,14 +56,9 @@
                                                     <td><?= $res['citation'] ?></td>
                                                     <td><?= $res['status'] ?></td>
                                                     <td><?= $res['file'] ?></td>
-                                                    <td><button class="btn btn-sm dropdown-toggle more-horizontal" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                            <span class="text-muted sr-only">Action</span>
-                                                        </button>
-                                                        <div class="dropdown-menu dropdown-menu-right">
-                                                            <a class="dropdown-item" href="/">Edit</a>
-                                                            <a class="dropdown-item" href="#">Remove</a>
-                                                            <a class="dropdown-item" href="/viewresearch?id=<?= $res['id'] ?>"">View</a>
-                                                        </div>
+                                                    <td>
+                                                        <a href="<?= base_url('researchdetails/' . $res['id']) ?>" class="eyebtn"><i class="fe fe-eye"></i></a>
+
                                                     </td>
                                                 </tr>
                                             <?php endforeach; ?>
@@ -103,5 +98,59 @@
             line-height: 2rem;
             border-radius: 7px;
             cursor: pointer;
+        }
+
+        .eyebtn {
+            color: #b06dff;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 23px;
+            border: none;
+            border-radius: 5px;
+            background-color: transparent;
+        }
+
+
+        .eyebtn:active {
+            background-color: #b06dff;
+            transform: translateY(2px);
+            color: white;
+        }
+
+        .bookmark {
+            color: #ffd942;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 23px;
+            border: none;
+            border-radius: 5px;
+            background-color: transparent;
+        }
+
+
+        .bookmark:active {
+            background-color: #ffd942;
+            transform: translateY(2px);
+            color: white;
+        }
+
+        .archive {
+            color: #ff0000;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 23px;
+            border: none;
+            border-radius: 5px;
+            background-color: transparent;
+        }
+
+
+        .archive:active {
+            background-color: #ff0000;
+            transform: translateY(2px);
+            color: white;
         }
     </style>

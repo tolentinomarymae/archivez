@@ -1,37 +1,78 @@
 <main role="main" class="main-content">
+    <nav aria-label="breadcrumb" class="custom-breadcrumb">
+        <ol class="breadcrumb justify-content-end">
+            <li class="breadcrumb-item"><a href="/researchpapers">Research Papers</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Research Details</li>
+        </ol>
+    </nav>
     <div class="container-fluid">
-        <div class="row justify-content-center">
-            <div class="col-12">
-                <?php foreach ($output as $res) : ?>
-                    <h2 class="page-title"><?= $res['researchtitle'] ?></h2>
-                    <div class="col-lg-6=12 mb-4">
-                        <div class="d-flex flex-row tab-icon">
-                            <div class="nav flex-column nav-pills" id="v-pills-tab3" role="tablist" aria-orientation="vertical">
-                                <a class="nav-link py-3 active" id="v-pills-home-tab3" data-toggle="pill" href="#v-pills-home3" role="tab" aria-controls="v-pills-home3" aria-selected="true"><span class="fe fe-16 fe-box"></span></a>
-                                <a class="nav-link py-3" id="v-pills-profile-tab3" data-toggle="pill" href="#v-pills-profile3" role="tab" aria-controls="v-pills-profile3" aria-selected="false"><span class="fe fe-16 fe-archive"></span></a>
-                                <a class="nav-link py-3" id="v-pills-messages-tab3" data-toggle="pill" href="#v-pills-messages3" role="tab" aria-controls="v-pills-messages3" aria-selected="false"><span class="fe fe-16 fe-coffee"></span></a>
-                            </div>
-                            <div class="tab-content w-100" id="v-pills-tabContent3">
-                                <div class="tab-pane fade show active" id="v-pills-home3" role="tabpanel" aria-labelledby="v-pills-home-tab3">
-                                    <div class="card mb-0">
-                                        <div class="card-body"> submitted to</div>
-                                        <img src="<?= $res['file']; ?>">
-                                    </div>
-                                    <div class="tab-pane fade" id="v-pills-profile3" role="tabpanel" aria-labelledby="v-pills-profile-tab3">
-                                        <div class="card mb-0">
-                                            <div class="card-body"> sdfsfsd </div>
+        <div class="row">
+            <div class="col-lg-12 mb-4">
+                <ul class="nav nav-pills" id="pills-tab2" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link px-3 active" id="pills-home-tab2" data-toggle="pill" href="#pills-home2" role="tab" aria-controls="pills-home2" aria-selected="true"><span class="fe fe-user"></span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-3" id="pills-profile-tab2" data-toggle="pill" href="#pills-profile2" role="tab" aria-controls="pills-profile2" aria-selected="false"><span class="fe fe-file-text"></span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-3" id="pills-contact-tab2" data-toggle="pill" href="#pills-contact2" role="tab" aria-controls="pills-contact" aria-selected="false"><span class="fe fe-16 fe-coffee"></span></a>
+                    </li>
+                </ul>
+                <div class="tab-content mb-2" id="pills-tabContent2">
+                    <div class="tab-pane fade show active" id="pills-home2" role="tabpanel" aria-labelledby="pills-home-tab2">
+                        <div class="card mb-0">
+                            <div class="card-body">
+                                <div class="card-body p-1">
+                                    <div class="row mb-5">
+                                        <div class="col-12 text-center mt-5 mb-4">
+                                            <h1 class="mb-2 text-uppercase"><?= $output['researchtitle'] ?></h1>
                                         </div>
-                                    </div>
-                                    <div class="tab-pane fade" id="v-pills-messages3" role="tabpanel" aria-labelledby="v-pills-messages-tab3">
-                                        <div class="card mb-0">
-                                            <div class="card-body"> sdfsfsdf. </div>
+                                        <div class="col-md-6">
+                                            <h4 class="text-muted text-uppercase mb-2">About the Author/s</h4>
+                                            <p class="mb-4">
+                                                Author/s: <strong><?= $output['author'] ?></strong><br /> ID Number:<strong> <?= $output['idnumber'] ?></strong><br /> Year and Section: <strong><?= $output['gradelevel'] ?> <?= $output['section'] ?></strong><br />
+                                            </p>
                                         </div>
-                                    </div>
+                                        <div class="col-md-6">
+                                            <h4 class="text-muted text-uppercase mb-2">About the Research</h4>
+                                            <p class="mb-4">
+                                                Upload Date: <strong><?= $output['uploaddate'] ?></strong><br /> Status:<strong> <?= $output['status'] ?></strong><br /> Subject: <strong><?= $output['subject'] ?></strong><br />Submitted to: <strong><?= $output['submittedto'] ?></strong><br />
+                                            </p>
+                                        </div>
+                                    </div> <!-- /.row -->
+                                    <div class="row mb-5">
+                                        <div class="col-md-12">
+                                            <p>Keywords: <strong><i><?= $output['keywords'] ?></i></strong></p>
+                                            <p class="mb-4">Citation: <strong><i><?= $output['citation'] ?></i></strong></p>
+                                            <p class="mb-4">Abstract: <strong><?= $output['abstract'] ?></strong></p><?= $output['file'] ?>
+                                        </div>
+                                    </div> <!-- /.card -->
                                 </div>
                             </div>
                         </div>
-                    <?php endforeach; ?>
-
                     </div>
+                    <div class="tab-pane fade " id="pills-profile2" role="tabpanel" aria-labelledby="pills-home-tab2">
+                        <div class="card mb-0">
+                            <div class="card-body"> two </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade " id="pills-contact2" role="tabpanel" aria-labelledby="pills-home-tab2">
+                        <div class="card mb-0">
+                            <div class="card-body"> three </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </div>
+    </div>
 </main>
+<style>
+    .breadcrumb {
+        background-color: transparent;
+    }
+
+    .breadcrumb-item {
+        text-decoration: none;
+    }
+</style>

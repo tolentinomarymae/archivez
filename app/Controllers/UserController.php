@@ -35,6 +35,10 @@ class UserController extends BaseController
             'firstname' => 'required|min_length[1]|max_length[100]',
             'lastname' => 'required|min_length[1]|max_length[100]',
             'email' => 'required|min_length[1]|max_length[100]|is_unique[users.email]',
+            'department' => 'required|min_length[1]|max_length[100]',
+            'gradelevel' => 'required|min_length[1]|max_length[100]',
+            'section' => 'required|min_length[1]|max_length[100]',
+            'idnumber' => 'required|min_length[1]|max_length[100]',
             'password' => 'required|min_length[8]|max_length[100]',
 
         ];
@@ -46,6 +50,10 @@ class UserController extends BaseController
             $data = [
                 'firstname' => $this->request->getVar('firstname'),
                 'lastname' => $this->request->getVar('lastname'),
+                'idnumber' => $this->request->getVar('idnumber'),
+                'department' => $this->request->getVar('department'),
+                'gradelevel' => $this->request->getVar('gradelevel'),
+                'section' => $this->request->getVar('section'),
                 'usertype' => $this->request->getVar('usertype'),
                 'email' => $this->request->getVar('email'),
                 'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
@@ -85,6 +93,11 @@ class UserController extends BaseController
                     'id' => $data['id'],
                     'firstname' => $data['firstname'],
                     'lastname' => $data['lastname'],
+                    'email' => $data['email'],
+                    'idnumber' => $data['idnumber'],
+                    'department' => $data['department'],
+                    'gradelevel' => $data['gradelevel'],
+                    'section' => $data['section'],
                     'isLoggedIn' => TRUE,
                     'usertype' => $data['usertype'],
 

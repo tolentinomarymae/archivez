@@ -37,10 +37,10 @@
 			<div class="col-lg-6 col-md-6 infinity-form-container">
 				<div class="col-lg-9 col-md-12 col-sm-9 col-xs-12 infinity-form">
 					<!-- Company Logo -->
-					<div class="text-center mb-3 mt-5">
+					<div class="text-center mb-1 mt-3">
 						<a href="/"><img src="<?= base_url() ?>signin/archivez3.png" width="150px"></a>
 					</div>
-					<div class="text-center mb-4">
+					<div class="text-center mb-2">
 						<h4>Register new account</h4>
 					</div>
 					<!-- Form -->
@@ -53,6 +53,22 @@
 						<div class="form-input">
 							<span><i class="fa fa-user"></i></span>
 							<input type="text" name="lastname" placeholder="Last Name" tabindex="10" required>
+						</div>
+						<div class="form-input">
+							<span><i class="fa fa-id-card"></i></span>
+							<input type="text" name="idnumber" placeholder="ID Number" tabindex="10" required>
+						</div>
+						<div class="form-input">
+							<span><i class="fa fa-building"></i></span>
+							<input type="text" name="department" placeholder="Department" tabindex="10" required>
+						</div>
+						<div class="form-input">
+							<span><i class="fa fa-graduation-cap"></i></span>
+							<input type="text" name="gradelevel" placeholder="Grade Level" tabindex="10" required>
+						</div>
+						<div class="form-input">
+							<span><i class="fa fa-users"></i></span>
+							<input type="text" name="section" placeholder="Section" tabindex="10" required>
 						</div>
 						<div class="form-input">
 							<select name="usertype" id="usertype" required>

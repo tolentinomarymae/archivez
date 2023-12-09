@@ -31,15 +31,15 @@
                   <li class="nav-item w-100">
                       <a class="nav-link" href="/researchpapers">
                           <i class="fe fe-book-open fe-16"></i>
-                          <span class="ml-3 item-text">Research Outputs</span>
+                          <span class="ml-3 item-text">Research Papers</span>
                       </a>
                   </li>
               </ul>
               <ul class="navbar-nav flex-fill w-100 mb-2">
                   <li class="nav-item w-100">
-                      <a class="nav-link" href="/myresearchoutput">
-                          <i class="fe fe-book-open fe-16"></i>
-                          <span class="ml-3 item-text">My Research Outputs</span>
+                      <a class="nav-link" href="bookmarks">
+                          <i class="fe fe-bookmark"></i>
+                          <span class="ml-3 item-text">Bookmarks</span>
                       </a>
                   </li>
               </ul>

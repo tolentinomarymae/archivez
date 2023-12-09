@@ -2,10 +2,8 @@
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-12">
-                <h2 class="mb-2 page-title">Research Outputs</h2>
-                <a href="/insertresearch" class="btn btn-primary">Add New</a>
-
-                <p class="card-text">Refer to these research papers that was uploaded by your schoolmates. Be responsible in viewing these researches! </p>
+                <h2 class="mb-2 page-title">My Research Outputs</h2>
+                <p class="card-text">Research papers </p>
 
                 <div class="row my-4">
                     <!-- Small table -->
@@ -60,9 +58,24 @@
                                                             <span class="text-muted sr-only">Action</span>
                                                         </button>
                                                         <div class="dropdown-menu dropdown-menu-right">
-                                                            <a class="dropdown-item" href="/">Edit</a>
+                                                            <button type="button" onclick="openEditResearchModal(
+                                                                    <?= $res['id']; ?>,
+                                                                    '<?= $res['researchtitle']; ?>',
+                                                                    '<?= $res['submittedto']; ?>',
+                                                                    '<?= $res['subject']; ?>',
+                                                                    '<?= $res['author']; ?>',
+                                                                    '<?= $res['idnumber']; ?>',
+                                                                    '<?= $res['gradelevel']; ?>',
+                                                                    '<?= $res['section']; ?>',
+                                                                    '<?= $res['uploaddate']; ?>',
+                                                                    '<?= $res['abstract']; ?>',
+                                                                    '<?= $res['keywords']; ?>',
+                                                                    '<?= $res['citation']; ?>',
+                                                                    '<?= $res['status']; ?>',
+                                                                    '<?= $res['file']; ?>',
+                                                                    )">Edit</button>
                                                             <a class="dropdown-item" href="#">Remove</a>
-                                                            <a class="dropdown-item" href="/viewresearch?id=<?= $res['id'] ?>"">View</a>
+                                                            <a class="dropdown-item" href="<?= base_url('researchdetails/' . $res['id']) ?>">View</a>
                                                         </div>
                                                     </td>
                                                 </tr>
@@ -78,6 +91,78 @@
         </div> <!-- .row -->
     </div> <!-- .container-fluid -->
 
+    <div class="modal fade" id="editresearchmodal" tabindex="-1" aria-labelledby="editresearchmodalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editresearchmodalLabel">Edit Research Paper</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="/myresearchoutput/update" method="post">
+                        <input type="hidden" name="id" id="editresearchid">
+                        <div class="mb-3">
+                            <label for="editresearchtitle" class="form-label">Research Title</label>
+                            <input type="text" name="researchtitle" id="editresearchtitle" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="editsubmittedto" class="form-label">Teacher</label>
+                            <input type="text" name="submittedto" id="editsubmittedto" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="editsubject" class="form-label">Subject</label>
+                            <input type="text" name="subject" id="editsubject" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="editauthor" class="form-label">Author</label>
+                            <input type="text" name="author" id="editauthor" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="editidnumber" class="form-label">ID Number</label>
+                            <input type="text" name="idnumber" id="editidnumber" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="editgradelevel" class="form-label">Grade Level</label>
+                            <input type="text" name="gradelevel" id="editgradelevel" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="editsection" class="form-label">Section</label>
+                            <input type="text" name="section" id="editsection" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="edituploaddate" class="form-label">Upload Date</label>
+                            <input type="date" name="uploaddate" id="edituploaddate" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="editidnumber" class="form-label">ID Number</label>
+                            <input type="text" name="idnumber" id="editidnumber" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="editabstract" class="form-label">Abstract</label>
+                            <textarea name="abstract" id="editabstract" class="form-control"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editkeywords" class="form-label">Keywords</label>
+                            <input type="text" name="keywords" id="editkeywords" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="editcitation" class="form-label">Citation</label>
+                            <textarea name="citation" id="editcitation" class="form-control"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editstatus" class="form-label">Status</label>
+                            <textarea name="status" id="editstatus" class="form-control"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editfile" class="form-label">file</label>
+                            <input type="text" name="file" id="editfile" class="form-control">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
     <style>
         /* Set a fixed height for the cells */
         .table.datatables td,

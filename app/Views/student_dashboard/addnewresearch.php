@@ -74,7 +74,7 @@
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="file">Upload PDF</label>
-                                        <input type="file" class="form-control" name="file" id="file">
+                                        <input type="file" class="form-control" accept="pdf/*" name="file" id="file">
                                     </div>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Submit</button>
