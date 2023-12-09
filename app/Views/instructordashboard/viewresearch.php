@@ -16,7 +16,7 @@
                         <a class="nav-link px-3" id="pills-profile-tab2" data-toggle="pill" href="#pills-profile2" role="tab" aria-controls="pills-profile2" aria-selected="false"><span class="fe fe-file-text"></span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link px-3" id="pills-contact-tab2" data-toggle="pill" href="#pills-contact2" role="tab" aria-controls="pills-contact" aria-selected="false"><span class="fe fe-16 fe-bar-chart"></span></a>
+                        <a class="nav-link px-3" id="pills-contact-tab2" data-toggle="pill" href="#pills-contact2" role="tab" aria-controls="pills-contact" aria-selected="false"><span class="fe fe-16 fe-coffee"></span></a>
                     </li>
                 </ul>
                 <div class="tab-content mb-2" id="pills-tabContent2">
@@ -54,30 +54,12 @@
                     </div>
                     <div class="tab-pane fade " id="pills-profile2" role="tabpanel" aria-labelledby="pills-home-tab2">
                         <div class="card mb-0">
-                            <div class="card-body"> file here</div>
+                            <div class="card-body"> two </div>
                         </div>
                     </div>
                     <div class="tab-pane fade " id="pills-contact2" role="tabpanel" aria-labelledby="pills-home-tab2">
                         <div class="card mb-0">
-                            <div class="card-body">
-                                <div class="col-12 text-center mt-5 mb-4">
-                                    <h1 class="mb-2 text-uppercase"><?= $output['researchtitle'] ?></h1>
-                                </div>
-                                <div class="col-md-6">
-                                    <h4 class="text-muted text-uppercase mb-2">Upvotes </h4>
-                                    <p class="mb-4" style="font-size: larger;"> <i class="fe fe-heart" style="color: red;"></i> <strong><?= $upvoteCount ?></strong></p>
-                                </div>
-                                <div class="col-md-6">
-                                    <h4 class="text-muted text-uppercase mb-2">Comments </h4>
-                                    <p class="mb-4" style="font-size: larger;"> <i class="fe fe-message-square" style="color: yellow;"></i> <strong><?= $commentsCount ?></strong></p>
-                                </div>
-                                <?php foreach ($comments as $comment) : ?>
-                                    <p class="mb-4">
-                                        Commented by: <?= $comment['commentedby'] ?><br>
-                                        Comment: <?= $comment['comment'] ?>
-                                    </p>
-                                <?php endforeach; ?>
-                            </div>
+                            <div class="card-body"> three </div>
                         </div>
                     </div>
                 </div>

@@ -21,11 +21,19 @@
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label for="submittedto">Teacher</label>
-                                        <input type="text" class="form-control" name="submittedto" id="submittedto" placeholder=" Teacher">
+                                        <select name="submittedto" id="submittedto" class="form-control">
+                                            <?php foreach ($adminmanage as $admnage) : ?>
+                                                <option value="<?= $admnage['teachers'] ?>"><?= $admnage['teachers'] ?></option>
+                                            <?php endforeach; ?>
+                                        </select>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="subject">Subject</label>
-                                        <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject">
+                                        <select name="subject" id="subject" class="form-control">
+                                            <?php foreach ($subject as $subj) : ?>
+                                                <option value="<?= $subj['subjects'] ?>"><?= $subj['subjects'] ?></option>
+                                            <?php endforeach; ?>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -45,7 +53,11 @@
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label for="section">Section</label>
-                                        <input type="text" class="form-control" name="section" id="section" placeholder="Section">
+                                        <select name="section" id="section" class="form-control">
+                                            <?php foreach ($secti as $section) : ?>
+                                                <option value="<?= $section['section'] ?>"><?= $section['section'] ?></option>
+                                            <?php endforeach; ?>
+                                        </select>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="uploaddate">Upload Date</label>

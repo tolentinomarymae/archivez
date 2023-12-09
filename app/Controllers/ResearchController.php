@@ -10,22 +10,39 @@ class ResearchController extends BaseController
     public $output;
     public $bookmark;
     public $archive;
+    public $secti;
+    public $adminmanage;
+    public $subject;
+    public $comments;
+    public $upvote;
+
 
     public function __construct()
     {
         $this->output = new \App\Models\ResearchModel();
         $this->bookmark = new \App\Models\BookmarkModel();
         $this->archive = new \App\Models\ArchiveModel();
+        $this->secti = new \App\Models\SectionsModel();
+        $this->adminmanage = new \App\Models\TeacherModel();
+        $this->subject = new \App\Models\SubjectModel();
+        $this->comments = new \App\Models\CommentsModel();
+        $this->upvote = new \App\Models\UpvoteModel();
     }
     public function insertresearch()
     {
+
+        // Fetch sections from the database
+        $secti = $this->secti->findAll();
+        $adminmanage = $this->adminmanage->findAll();
+        $subject = $this->subject->findAll();
+
         if (!session()->get('isLoggedIn')) {
             return redirect()->to('/logins');
         } else {
             $data = [
                 'output' => $this->output->findAll()
             ];
-            return view('studentdashboardview/addresearch', $data);
+            return view('studentdashboardview/addresearch', ['secti' => $secti, 'subject' => $subject, 'adminmanage' => $adminmanage],   $data);
         }
     }
     public function researchpapers()
@@ -41,7 +58,6 @@ class ResearchController extends BaseController
     }
     public function addnewresearch()
     {
-
         // Get the user ID from the session
         $userId = session()->get('id');
 
@@ -117,16 +133,30 @@ class ResearchController extends BaseController
 
     public function researchdetails($id)
     {
+        // Get the research details
         $output = $this->output->find($id);
+
         if ($output) {
+            // Get the total upvotes for the research
+            $upvoteCount = $this->upvote->where('research_id', $id)->countAllResults();
+            $comments = $this->comments->where('research_id', $id)->findAll();
+
+            // Count the number of comments
+            $commentsCount = count($comments);
+            // Pass data to the view
             $data = [
-                'output' => $output
+                'output' => $output,
+                'upvoteCount' => $upvoteCount,
+                'comments' => $comments, // Pass the comments data
+                'commentsCount' => $commentsCount,
             ];
+
             return view('studentdashboardview/viewresearch', $data);
         } else {
             return redirect()->to('/researchpapers');
         }
     }
+
 
     public function bookmarkResearch($id)
     {
@@ -319,5 +349,67 @@ class ResearchController extends BaseController
 
         // Redirect back to the product list or a success page
         return redirect()->to('/studentprofile')->with('success', 'Field updated successfully');
+    }
+
+    public function addcomment()
+    {
+        // Fetch a single research record
+        $research = $this->output->select('id')->first();
+
+        // Check if a research record was found
+        if (!$research) {
+            // Handle the case where no research record is found (redirect, show an error, etc.)
+            return redirect()->to('/instructorresearchpapers')->with('error', 'No research record found');
+        }
+
+        // Validate the form data
+        $validation = $this->validate([
+            'commentedby' => 'required',
+            'comment' => 'required',
+        ]);
+
+        if (!$validation) {
+            // Validation failed, return to the form with errors
+            return view('instructordashboardview/researchpaperview', ['validation' => $this->validator]);
+        }
+
+        // If validation passes, insert the data into the database
+        $this->comments->save([
+            'research_id' => $research['id'], // Use the retrieved research_id as an array key
+            'commentedby' => $this->request->getPost('commentedby'),
+            'comment' => $this->request->getPost('comment'),
+        ]);
+
+        // Redirect to a success page or display a success message
+        return redirect()->to('/instructorresearchpapers')->with('success', 'Field added successfully');
+    }
+    public function upvoteResearch($research_id)
+    {
+        // Check if the user is logged in
+        if (!session()->get('isLoggedIn')) {
+            return redirect()->to('/logins'); // Redirect to login if not logged in
+        }
+
+        // Get the user ID from the session
+        $user_id = session()->get('id');
+
+        // Check if the user has already upvoted the research
+        $existingUpvote = $this->upvote->where('user_id', $user_id)
+            ->where('research_id', $research_id)
+            ->first();
+
+        if (!$existingUpvote) {
+            // If the user hasn't upvoted, insert the upvote into the database
+            $this->upvote->save([
+                'user_id' => $user_id,
+                'research_id' => $research_id,
+            ]);
+
+            // Redirect back to the research page or do something else
+            return redirect()->back()->with('success', 'Research upvoted successfully');
+        } else {
+            // If the user has already upvoted, you can handle it accordingly
+            return redirect()->back()->with('error', 'You have already upvoted this research');
+        }
     }
 }

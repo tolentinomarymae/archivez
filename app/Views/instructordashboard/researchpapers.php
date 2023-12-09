@@ -3,9 +3,8 @@
         <div class="row justify-content-center">
             <div class="col-12">
                 <h2 class="mb-2 page-title">Research Outputs</h2>
-                <a href="/insertresearch" class="btn btn-primary">Add New</a>
 
-                <p class="card-text">Refer to these research papers that was uploaded by your schoolmates. Be responsible in viewing these researches! </p>
+                <p class="card-text">These are the research paper uploaded by the students! </p>
 
                 <div class="row my-4">
                     <!-- Small table -->
@@ -57,10 +56,8 @@
                                                     <td><?= $res['status'] ?></td>
                                                     <td><?= $res['file'] ?></td>
                                                     <td>
-                                                        <a href="<?= base_url('researchdetails/' . $res['id']) ?>" class="eyebtn"><i class="fe fe-eye"></i></a>
-                                                        <a href="<?= base_url('bookmarkResearch/' . $res['id']) ?>" class="bookmarkbtn"><i class="fe fe-bookmark"></i></a>
-                                                        <a href="<?= base_url('upvoteResearch/' . $res['id']) ?>" class="archive"><i class="fe fe-heart"></i></a>
-
+                                                        <a href="<?= base_url('instructorresearchdetails/' . $res['id']) ?>" class="eyebtn"><i class="fe fe-eye"></i></a>
+                                                        <a href="" data-bs-toggle="modal" data-bs-target="#addcommentmodal" class="bookmarkbtn"><i class="fe fe-message-square"></i></a>
                                                     </td>
                                                 </tr>
                                             <?php endforeach; ?>
@@ -74,7 +71,35 @@
             </div> <!-- .col-12 -->
         </div> <!-- .row -->
     </div> <!-- .container-fluid -->
+    <!-- Add Product Modal -->
+    <div class="modal fade" id="addcommentmodal" role="dialog" aria-labelledby="addcommentmodalLabel" aria-hidden="true">
+        <br>
+        <div class="modal-dialog modal-dialog-centered" style="z-index: 10000;">
 
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addcommentmodalLabel">Add Comment</h5>
+                </div>
+                <div class="modal-body">
+                    <form action="/addcomment" method="post">
+                        <div class="mb-3">
+                            <label for="commentedby" class="form-label">Commented By:</label>
+                            <input type="text" name="commentedby" id="commentedby" placeholder="Full Name" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="comment" class="form-label">Comment:</label>
+                            <textarea name="comment" id="comment" placeholder="Full Name" class="form-control"></textarea>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
     <style>
         /* Set a fixed height for the cells */
         .table.datatables td,
@@ -91,15 +116,6 @@
             max-height: 300px;
             /* Adjust the height as needed */
             overflow-y: auto;
-        }
-
-        .btn-primary {
-            position: absolute;
-            top: 0;
-            right: 0;
-            line-height: 2rem;
-            border-radius: 7px;
-            cursor: pointer;
         }
 
         .eyebtn:hover {

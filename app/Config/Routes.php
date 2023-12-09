@@ -59,3 +59,12 @@ $routes->post('/addsubject', 'AdminController::addsubject');
 $routes->post('/addsubject/edit/(:num)', 'AdminController::editsubject/$1');
 $routes->post('/addsubject/update', 'AdminController::updatesubject');
 $routes->post('managesubjects/delete/(:num)', 'AdminController::deletesubject/$1');
+
+// instructor
+$routes->get('/instuctordashboard', 'InstructorController::instructordashboard');
+$routes->get('/instructorresearchpapers', 'InstructorController::instructorresearchpapers');
+$routes->get('/instructorresearchdetails/(:any)', 'InstructorController::researchdetails/$1');
+
+// comment
+$routes->post('/addcomment', 'ResearchController::addcomment');
+$routes->get('upvoteResearch/(:num)', 'ResearchController::upvoteResearch/$1');
