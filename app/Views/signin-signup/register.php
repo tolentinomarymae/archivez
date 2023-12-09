@@ -48,11 +48,7 @@
 						<!-- Input Box -->
 						<div class="form-input">
 							<span><i class="fa fa-user"></i></span>
-							<input type="text" name="firstname" placeholder="First Name" tabindex="10" required>
-						</div>
-						<div class="form-input">
-							<span><i class="fa fa-user"></i></span>
-							<input type="text" name="lastname" placeholder="Last Name" tabindex="10" required>
+							<input type="text" name="fullname" placeholder="Full Name" tabindex="10" required>
 						</div>
 						<div class="form-input">
 							<span><i class="fa fa-id-card"></i></span>
@@ -64,11 +60,11 @@
 						</div>
 						<div class="form-input">
 							<span><i class="fa fa-graduation-cap"></i></span>
-							<input type="text" name="gradelevel" placeholder="Grade Level" tabindex="10" required>
+							<input type="text" name="gradelevel" placeholder="Grade Level (Disregard if your an instructor)l" tabindex="10">
 						</div>
 						<div class="form-input">
 							<span><i class="fa fa-users"></i></span>
-							<input type="text" name="section" placeholder="Section" tabindex="10" required>
+							<input type="text" name="section" placeholder="Section (Disregard if your an instructor)" tabindex="10">
 						</div>
 						<div class="form-input">
 							<select name="usertype" id="usertype" required>

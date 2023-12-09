@@ -32,12 +32,9 @@ class UserController extends BaseController
         helper(['form']);
 
         $rules = [
-            'firstname' => 'required|min_length[1]|max_length[100]',
-            'lastname' => 'required|min_length[1]|max_length[100]',
+            'fullname' => 'required|min_length[1]|max_length[100]',
             'email' => 'required|min_length[1]|max_length[100]|is_unique[users.email]',
             'department' => 'required|min_length[1]|max_length[100]',
-            'gradelevel' => 'required|min_length[1]|max_length[100]',
-            'section' => 'required|min_length[1]|max_length[100]',
             'idnumber' => 'required|min_length[1]|max_length[100]',
             'password' => 'required|min_length[8]|max_length[100]',
 
@@ -48,8 +45,7 @@ class UserController extends BaseController
 
             $uniid = md5(str_shuffle('abcdefghijklmnopqrstuvwxyz' . time()));
             $data = [
-                'firstname' => $this->request->getVar('firstname'),
-                'lastname' => $this->request->getVar('lastname'),
+                'fullname' => $this->request->getVar('fullname'),
                 'idnumber' => $this->request->getVar('idnumber'),
                 'department' => $this->request->getVar('department'),
                 'gradelevel' => $this->request->getVar('gradelevel'),
@@ -91,8 +87,7 @@ class UserController extends BaseController
             if ($authenticatePassword) {
                 $ses_data = [
                     'id' => $data['id'],
-                    'firstname' => $data['firstname'],
-                    'lastname' => $data['lastname'],
+                    'fullname' => $data['fullname'],
                     'email' => $data['email'],
                     'idnumber' => $data['idnumber'],
                     'department' => $data['department'],
@@ -121,7 +116,7 @@ class UserController extends BaseController
     }
     public function login()
     {
-        session()->remove(['id', 'firstname', 'lastname', 'email', 'isLoggedIn', 'usertype']);
+        session()->remove(['id', 'fullname', 'email', 'isLoggedIn', 'usertype']);
         helper(['form']);
         return view('signin-signup/login');
     }

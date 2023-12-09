@@ -4,15 +4,15 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class UserModel extends Model
+class TeacherModel extends Model
 {
-    protected $table            = 'users';
+    protected $table            = 'adminmanage';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['fullname', 'idnumber', 'department', 'gradelevel', 'section', 'usertype', 'email', 'password', 'created_at'];
+    protected $allowedFields    = ['teachers'];
 
     // Dates
     protected $useTimestamps = false;

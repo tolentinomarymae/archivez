@@ -12,7 +12,7 @@
                          <div class="col">
                              <div class="row align-items-center"><!--php echo session()->get('firstname'); ?> php echo session()->get('lastname'); ?>-->
                                  <div class="col-lg-6">
-                                     <h4 class="mb-1">Name: <?php echo session()->get('firstname'); ?> <?php echo session()->get('lastname'); ?> </h4>
+                                     <h4 class="mb-1">Name: <?php echo session()->get('fullname'); ?> </h4>
                                      <p class="mb-1">ID Number: <?php echo session()->get('idnumber'); ?></p>
                                      <p class="mb-1">Email: <?php echo session()->get('email'); ?></p>
                                      <p class="mb-1">Department: <?php echo session()->get('department'); ?></p>
