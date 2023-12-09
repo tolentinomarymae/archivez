@@ -56,40 +56,41 @@
                                          <div class="modal-dialog" role="document">
                                              <div class="modal-content">
                                                  <div class="modal-header">
-                                                     <h5 class="modal-title" id="varyModalLabel">Add Profile</h5>
+                                                     <h5 class="modal-title" id="varyModalLabel">Edit Profile</h5>
                                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                          <span aria-hidden="true">&times;</span>
                                                      </button>
                                                  </div>
                                                  <div class="modal-body">
-                                                     <form action="/addprofile" method="post">
+                                                     <form action="/studentprofile/update" method="post">
+                                                         <input type="hidden" name="id" id="editid">
                                                          <div class="form-group">
-                                                             <label for="fullname" class="col-form-label">Full Name: </label>
-                                                             <input type="text" class="form-control" id="fullname">
+                                                             <label for="firstname" class="col-form-label">First Name: </label>
+                                                             <input type="text" class="form-control" id="editfirstname" name="firstname">
+                                                         </div>
+                                                         <div class="form-group">
+                                                             <label for="lastname" class="col-form-label">Last Name: </label>
+                                                             <input type="text" class="form-control" id="editlastname" name="lastname">
                                                          </div>
                                                          <div class="form-group">
                                                              <label for="idnumber" class="col-form-label">ID Number:</label>
-                                                             <input type="text" class="form-control" id="idnumber">
+                                                             <input type="text" class="form-control" id="editidnumber" name="idnumber">
                                                          </div>
                                                          <div class="form-group">
                                                              <label for="email" class="col-form-label">Email:</label>
-                                                             <input type="text" class="form-control" id="email">
+                                                             <input type="text" class="form-control" id="editemail" name="email">
                                                          </div>
                                                          <div class="form-group">
                                                              <label for="department" class="col-form-label">Department:</label>
-                                                             <input type="text" class="form-control" id="department">
+                                                             <input type="text" class="form-control" id="editdepartment" name="department">
                                                          </div>
                                                          <div class="form-group">
                                                              <label for="gradelevel" class="col-form-label">Grade Level:</label>
-                                                             <input type="text" class="form-control" id="gradelevel">
+                                                             <input type="text" class="form-control" id="editgradelevel" name="gradelevel">
                                                          </div>
                                                          <div class="form-group">
                                                              <label for="section" class="col-form-label">Section:</label>
-                                                             <input type="text" class="form-control" id="section">
-                                                         </div>
-                                                         <div class="form-group">
-                                                             <label for="aboutme" class="col-form-label">About Me:</label>
-                                                             <textarea class="form-control" id="aboutme"></textarea>
+                                                             <input type="text" class="form-control" id="editsection" name="section">
                                                          </div>
                                                          <div class="modal-footer">
                                                              <button type="button" class="btn mb-2 btn-secondary" data-dismiss="modal">Close</button>
@@ -158,29 +159,27 @@
                                                  <td><?= $res['citation'] ?></td>
                                                  <td><?= $res['status'] ?></td>
                                                  <td><?= $res['file'] ?></td>
-                                                 <td><button class="btn btn-sm dropdown-toggle more-horizontal" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                         <span class="text-muted sr-only">Action</span>
-                                                     </button>
-                                                     <div class="dropdown-menu dropdown-menu-right">
-                                                         <button type="button" onclick="openEditResearchModal(
-                                                                    <?= $res['id']; ?>,
-                                                                    '<?= $res['researchtitle']; ?>',
-                                                                    '<?= $res['submittedto']; ?>',
-                                                                    '<?= $res['subject']; ?>',
-                                                                    '<?= $res['author']; ?>',
-                                                                    '<?= $res['idnumber']; ?>',
-                                                                    '<?= $res['gradelevel']; ?>',
-                                                                    '<?= $res['section']; ?>',
-                                                                    '<?= $res['uploaddate']; ?>',
-                                                                    '<?= $res['abstract']; ?>',
-                                                                    '<?= $res['keywords']; ?>',
-                                                                    '<?= $res['citation']; ?>',
-                                                                    '<?= $res['status']; ?>',
-                                                                    '<?= $res['file']; ?>',
-                                                                    )">Edit</button>
-                                                         <a class="dropdown-item" href="#">Remove</a>
-                                                         <a class="dropdown-item" href="<?= base_url('researchdetails/' . $res['id']) ?>">View</a>
-                                                     </div>
+                                                 <td>
+                                                     <a href="<?= base_url('researchdetails/' . $res['id']) ?>" class="eyebtn"><i class="fe fe-eye"></i></a>
+                                                     <button type="button" class="bookmarkbtn" data-toggle="modal" data-target="#editresearchmodal" onclick="openEditResearchModal( 
+                                                        <?= $res['id']; ?>, 
+                                                        '<?= $res['researchtitle']; ?>' , 
+                                                        '<?= $res['submittedto']; ?>' , 
+                                                        '<?= $res['subject']; ?>' , 
+                                                        '<?= $res['author']; ?>' , 
+                                                        '<?= $res['idnumber']; ?>' , 
+                                                        '<?= $res['gradelevel']; ?>' , 
+                                                        '<?= $res['section']; ?>' , 
+                                                        '<?= $res['uploaddate']; ?>' , 
+                                                        '<?= $res['abstract']; ?>' , 
+                                                        '<?= $res['keywords']; ?>' , 
+                                                        '<?= $res['citation']; ?>' , 
+                                                        '<?= $res['status']; ?>' , 
+                                                        '<?= $res['file']; ?>' , 
+                                                        )"><i class=" fe fe-edit"></i></button>
+
+                                                     <a href="<?= base_url('archive/' . $res['id']) ?>" class="archive"><i class="fe fe-archive"></i></a>
+
                                                  </td>
                                              </tr>
                                          <?php endforeach; ?>
@@ -195,4 +194,167 @@
          </div>
          </div>
          </div>
+
+         <!-- edit_product_modal.php -->
+
+         <div class="modal fade" id="editresearchmodal" tabindex="-1" aria-labelledby="editresearchmodalLabel" aria-hidden="true">
+             <div class="modal-dialog modal-dialog-centered">
+                 <div class="modal-content">
+                     <div class="modal-header">
+                         <h5 class="modal-title" id="ediresearchmodalLabel">Edit Research</h5>
+
+                     </div>
+                     <div class="modal-body">
+                         <form action="/myresearch/update" method="post">
+                             <input type="hidden" name="id" id="ediresearchid">
+                             <div class="mb-3">
+                                 <label for="editresearchtitle" class="form-label">Research Title</label>
+                                 <input type="text" name="rsearchtitle" id="editresearchtitle" class="form-control">
+                             </div>
+                             <div class="mb-3">
+                                 <label for="editsubmittedto" class="form-label">Submitted to:</label>
+                                 <input type="text" name="submittedto" id="editsubmittedto" class="form-control">
+                             </div>
+                             <div class="mb-3">
+                                 <label for="editsubject" class="form-label">Subject:</label>
+                                 <input type="text" name="subject" id="editsubject" class="form-control">
+                             </div>
+                             <div class="mb-3">
+                                 <label for="editauthor" class="form-label">Author/s</label>
+                                 <input type="text" name="author" id="editauthor" class="form-control">
+                             </div>
+                             <div class="mb-3">
+                                 <label for="editidnumber" class="form-label">ID Number:</label>
+                                 <input type="text" name="idnumber" id="editidnumber" class="form-control">
+                             </div>
+                             <div class="mb-3">
+                                 <label for="editgradelevel" class="form-label">Grade Level:</label>
+                                 <input type="text" name="gradelevel" id="editgradelevel" class="form-control">
+                             </div>
+                             <div class="mb-3">
+                                 <label for="editsection" class="form-label">Section:</label>
+                                 <input type="text" name="section" id="editsection" class="form-control">
+                             </div>
+                             <div class="mb-3">
+                                 <label for="edituploaddate" class="form-label">Upload Date:</label>
+                                 <input type="date" name="uploaddate" id="edituploaddate" class="form-control">
+                             </div>
+                             <div class="mb-3">
+                                 <label for="editabstract" class="form-label">Abstract:</label>
+                                 <textarea name="abstract" id="editabstract" class="form-control"></textarea>
+                             </div>
+                             <div class="mb-3">
+                                 <label for="editkeywords" class="form-label">Keywords:</label>
+                                 <textarea name="keywords" id="editkeywords" class="form-control"></textarea>
+                             </div>
+                             <div class="mb-3">
+                                 <label for="editcitation" class="form-label">Citation:</label>
+                                 <textarea name="citation" id="editcitation" class="form-control"></textarea>
+                             </div>
+                             <div class="mb-3">
+                                 <label for="editstatus" class="form-label">Status:</label>
+                                 <input type="text" name="status" id="editstatus" class="form-control">
+                             </div>
+                             <div class="mb-3">
+                                 <label for="editfile" class="form-label">File:</label>
+                                 <input type="file" name="file" id="editfile" class="form-control">
+                             </div>
+                             <button type="submit" class="btn btn-primary">Save Changes</button>
+                             <button type="button" class="btn mb-2 btn-secondary" data-dismiss="modal">Close</button>
+                         </form>
+                     </div>
+                 </div>
+             </div>
+         </div>
      </main>
+
+     <style>
+         .modal-dialog {
+             max-width: 80% !important;
+             /* The !important is used to override any other styles that might be applied */
+         }
+
+         /* Set a fixed height for the cells */
+         .table.datatables td,
+         .table.datatables th {
+             max-height: 100px;
+             /* Adjust the height as needed */
+             overflow: hidden;
+             text-overflow: ellipsis;
+             white-space: nowrap;
+         }
+
+         /* Set a fixed height for the table body */
+         .table.datatables tbody {
+             max-height: 300px;
+             /* Adjust the height as needed */
+             overflow-y: auto;
+         }
+
+         .eyebtn:hover {
+             text-decoration: none !important;
+         }
+
+         .eyebtn {
+             color: #b06dff;
+             text-align: center;
+             display: inline-block;
+             font-size: 23px;
+             border: none;
+             margin-right: 10px;
+             border-radius: 5px;
+             background-color: transparent;
+         }
+
+
+         .eyebtn:active {
+             background-color: #b06dff;
+             transform: translateY(2px);
+             color: white;
+         }
+
+         .bookmarkbtn {
+             color: #ffd942;
+             text-align: center;
+             text-decoration: none;
+             display: inline-block;
+             font-size: 23px;
+             margin-right: 10px;
+             border: none;
+             border-radius: 5px;
+             background-color: transparent;
+         }
+
+
+         .bookmarkbtn:active {
+             background-color: #ffd942;
+             transform: translateY(2px);
+             color: white;
+         }
+
+         .bookmarkbtn:hover {
+             text-decoration: none !important;
+         }
+
+         .archive {
+             color: #ff0000;
+             text-align: center;
+             text-decoration: none;
+             display: inline-block;
+             font-size: 23px;
+             border: none;
+             border-radius: 5px;
+             background-color: transparent;
+         }
+
+
+         .archive:active {
+             background-color: #ff0000;
+             transform: translateY(2px);
+             color: white;
+         }
+
+         .archive:hover {
+             text-decoration: none !important;
+         }
+     </style>

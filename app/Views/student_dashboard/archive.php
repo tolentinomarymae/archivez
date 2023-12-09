@@ -2,10 +2,9 @@
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-12">
-                <h2 class="mb-2 page-title">Research Outputs</h2>
-                <a href="/insertresearch" class="btn btn-primary">Add New</a>
+                <h2 class="mb-2 page-title">My Archived Research Outputs</h2>
 
-                <p class="card-text">Refer to these research papers that was uploaded by your schoolmates. Be responsible in viewing these researches! </p>
+                <p class="card-text">These research papers are archive by you! You can restore it anytime so that it will be available for viewing!</p>
 
                 <div class="row my-4">
                     <!-- Small table -->
@@ -35,7 +34,7 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <?php foreach ($output as $res) : ?>
+                                            <?php foreach ($archive as $arc) : ?>
                                                 <tr>
                                                     <td>
                                                         <div class="custom-control custom-checkbox">
@@ -43,22 +42,21 @@
                                                             <label class="custom-control-label"></label>
                                                         </div>
                                                     </td>
-                                                    <td><?= $res['researchtitle'] ?></td>
-                                                    <td><?= $res['submittedto'] ?></td>
-                                                    <td><?= $res['subject'] ?></td>
-                                                    <td><?= $res['author'] ?></td>
-                                                    <td><?= $res['idnumber'] ?></td>
-                                                    <td><?= $res['gradelevel'] ?></td>
-                                                    <td><?= $res['section'] ?></td>
-                                                    <td><?= $res['uploaddate'] ?></td>
-                                                    <td><?= $res['abstract'] ?></td>
-                                                    <td><?= $res['keywords'] ?></td>
-                                                    <td><?= $res['citation'] ?></td>
-                                                    <td><?= $res['status'] ?></td>
-                                                    <td><?= $res['file'] ?></td>
+                                                    <td><?= $arc['researchtitle'] ?></td>
+                                                    <td><?= $arc['submittedto'] ?></td>
+                                                    <td><?= $arc['subject'] ?></td>
+                                                    <td><?= $arc['author'] ?></td>
+                                                    <td><?= $arc['idnumber'] ?></td>
+                                                    <td><?= $arc['gradelevel'] ?></td>
+                                                    <td><?= $arc['section'] ?></td>
+                                                    <td><?= $arc['uploaddate'] ?></td>
+                                                    <td><?= $arc['abstract'] ?></td>
+                                                    <td><?= $arc['keywords'] ?></td>
+                                                    <td><?= $arc['citation'] ?></td>
+                                                    <td><?= $arc['status'] ?></td>
+                                                    <td><?= $arc['file'] ?></td>
                                                     <td>
-                                                        <a href="<?= base_url('researchdetails/' . $res['id']) ?>" class="eyebtn"><i class="fe fe-eye"></i></a>
-                                                        <a href="<?= base_url('bookmarkResearch/' . $res['id']) ?>" class="bookmarkbtn"><i class="fe fe-bookmark"></i></a>
+
                                                     </td>
                                                 </tr>
                                             <?php endforeach; ?>

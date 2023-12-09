@@ -3,8 +3,6 @@
         <div class="row justify-content-center">
             <div class="col-12">
                 <h2 class="mb-2 page-title">Research Outputs</h2>
-                <a href="/insertresearch" class="btn btn-primary">Add New</a>
-
                 <p class="card-text">Refer to these research papers that was uploaded by your schoolmates. Be responsible in viewing these researches! </p>
 
                 <div class="row my-4">
@@ -35,7 +33,7 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <?php foreach ($output as $res) : ?>
+                                            <?php foreach ($bookmark as $book) : ?>
                                                 <tr>
                                                     <td>
                                                         <div class="custom-control custom-checkbox">
@@ -43,22 +41,21 @@
                                                             <label class="custom-control-label"></label>
                                                         </div>
                                                     </td>
-                                                    <td><?= $res['researchtitle'] ?></td>
-                                                    <td><?= $res['submittedto'] ?></td>
-                                                    <td><?= $res['subject'] ?></td>
-                                                    <td><?= $res['author'] ?></td>
-                                                    <td><?= $res['idnumber'] ?></td>
-                                                    <td><?= $res['gradelevel'] ?></td>
-                                                    <td><?= $res['section'] ?></td>
-                                                    <td><?= $res['uploaddate'] ?></td>
-                                                    <td><?= $res['abstract'] ?></td>
-                                                    <td><?= $res['keywords'] ?></td>
-                                                    <td><?= $res['citation'] ?></td>
-                                                    <td><?= $res['status'] ?></td>
-                                                    <td><?= $res['file'] ?></td>
+                                                    <td><?= $book['researchtitle'] ?></td>
+                                                    <td><?= $book['submittedto'] ?></td>
+                                                    <td><?= $book['subject'] ?></td>
+                                                    <td><?= $book['author'] ?></td>
+                                                    <td><?= $book['idnumber'] ?></td>
+                                                    <td><?= $book['gradelevel'] ?></td>
+                                                    <td><?= $book['section'] ?></td>
+                                                    <td><?= $book['uploaddate'] ?></td>
+                                                    <td><?= $book['abstract'] ?></td>
+                                                    <td><?= $book['keywords'] ?></td>
+                                                    <td><?= $book['citation'] ?></td>
+                                                    <td><?= $book['status'] ?></td>
+                                                    <td><?= $book['file'] ?></td>
                                                     <td>
-                                                        <a href="<?= base_url('researchdetails/' . $res['id']) ?>" class="eyebtn"><i class="fe fe-eye"></i></a>
-                                                        <a href="<?= base_url('bookmarkResearch/' . $res['id']) ?>" class="bookmarkbtn"><i class="fe fe-bookmark"></i></a>
+                                                        <a href="<?= base_url('bookmarkdetails/' . $book['bookmark_id']) ?>" class="eyebtn"><i class="fe fe-eye"></i></a>
                                                     </td>
                                                 </tr>
                                             <?php endforeach; ?>
