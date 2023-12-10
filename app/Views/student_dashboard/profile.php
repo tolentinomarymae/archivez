@@ -12,12 +12,16 @@
                          <div class="col">
                              <div class="row align-items-center"><!--php echo session()->get('firstname'); ?> php echo session()->get('lastname'); ?>-->
                                  <div class="col-lg-4">
-                                     <h4 class="mb-1">Name: </h4>
-                                     <p class="mb-1">ID Number: </p>
-                                     <p class="mb-1">Email: </p>
-                                     <p class="mb-1">Department: </p>
-                                     <p class="mb-1">Grade Level and Section: </p>
+                                     <?php foreach ($prof as $pro) : ?>
+                                         <h4 class="mb-1">Name: <?= $pro['fullname'] ?></h4>
+                                         <p class="mb-1">ID Number: <?= $pro['idnumber'] ?></p>
+                                         <p class="mb-1">Email: <?= $pro['email'] ?></p>
+                                         <p class="mb-1">Department: <?= $pro['department'] ?></p>
+                                         <p class="mb-1">Grade Level and Section: <?= $pro['gradelevel'] ?> <?= $pro['section'] ?> </p>
+                                     <?php endforeach; ?>
                                      <button type="button" class="btn mb-2 btn-primary" data-toggle="modal" data-target="#varyModal" data-whatever="@mdo">Add Profile</button>
+                                     <button type="button" class="btn mb-2 btn-primary" data-toggle="modal" data-target="#varyModal" data-whatever="@mdo">Add Profile</button>
+
                                  </div>
                                  <!-- Inside your HTML, where you want to display the values -->
                                  <div class="col-lg-8">
@@ -32,13 +36,13 @@
                                              <div class="row">
                                                  <div class="col-md-4 text-center mt-3">
                                                      <p class="mb-1 text-muted">Upvotes</p>
-                                                     <h6 class="mb-0"><?= $totalUpvotes ?><span class="fe fe-arrow-up text-success fe-12"></span></h6>
+                                                     <h6 class="mb-0"><?= $totalUpvotes ?> <span class="fe fe-arrow-up text-success fe-12"></span></h6>
 
                                                      <!-- Add relevant percentage and arrow information -->
                                                  </div>
                                                  <div class="col-md-4 text-center mt-3">
                                                      <p class="mb-1 text-muted">Comments</p>
-                                                     <h6 class="mb-0"><?= $totalComments ?></h6>
+                                                     <h6 class="mb-0"><?= $totalComments ?> <span class="fe fe-message text-success fe-12"></span></h6>
                                                      <!-- Add relevant percentage and arrow information -->
                                                  </div>
                                                  <div class="col-md-4 text-center mt-3">
@@ -64,32 +68,28 @@
                                                  <div class="modal-body">
                                                      <form action="/addprofile" method="post">
                                                          <div class="form-group">
-                                                             <label for="firstname" class="col-form-label">First Name: </label>
-                                                             <input type="text" class="form-control" name="firstname">
-                                                         </div>
-                                                         <div class="form-group">
-                                                             <label for="lastname" class="col-form-label">Last Name: </label>
-                                                             <input type="text" class="form-control" name="lastname">
+                                                             <label for="fullname" class="col-form-label">Full Name: </label>
+                                                             <input type="text" class="form-control" id="fullname" name="fullname">
                                                          </div>
                                                          <div class="form-group">
                                                              <label for="idnumber" class="col-form-label">ID Number:</label>
-                                                             <input type="text" class="form-control" name="idnumber">
+                                                             <input type="text" class="form-control" id="idnumber" name="idnumber">
                                                          </div>
                                                          <div class="form-group">
                                                              <label for="email" class="col-form-label">Email:</label>
-                                                             <input type="text" class="form-control" name="email">
+                                                             <input type="text" class="form-control" id="email" name="email">
                                                          </div>
                                                          <div class="form-group">
                                                              <label for="department" class="col-form-label">Department:</label>
-                                                             <input type="text" class="form-control" name="department">
+                                                             <input type="text" class="form-control" id="department" name="department">
                                                          </div>
                                                          <div class="form-group">
                                                              <label for="gradelevel" class="col-form-label">Grade Level:</label>
-                                                             <input type="text" class="form-control" name="gradelevel">
+                                                             <input type="text" class="form-control" id="gradelevel" name="gradelevel">
                                                          </div>
                                                          <div class="form-group">
                                                              <label for="section" class="col-form-label">Section:</label>
-                                                             <input type="text" class="form-control" name="section">
+                                                             <input type="text" class="form-control" id="section" name="section">
                                                          </div>
                                                          <div class="modal-footer">
                                                              <button type="button" class="btn mb-2 btn-secondary" data-dismiss="modal">Close</button>

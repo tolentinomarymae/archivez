@@ -9,9 +9,11 @@ class StudentDashboardController extends BaseController
 {
 
     public $output;
+    public $prof;
     public function __construct()
     {
         $this->output = new \App\Models\ResearchModel();
+        $this->prof = new \App\Models\MyProfileModel();
     }
     public function studentdashboard()
     {
@@ -64,6 +66,7 @@ class StudentDashboardController extends BaseController
 
         // Fetch research papers uploaded by the logged-in user
         $userResearch = $this->output->where('user_id', $userId)->findAll();
+        $prof = $this->prof->where('user_id', $userId)->findAll();
 
         // Count the total number of research papers uploaded by the user
         $totalUserResearch = count($userResearch);
@@ -96,8 +99,46 @@ class StudentDashboardController extends BaseController
             'totalBookmarks' => $totalBookmarks,
             'userResearch' => $userResearch,
             'weeklyCounts' => $weeklyCounts,
+            'prof' => $prof,
+
         ];
 
         return view('studentdashboardview/myprofile', $data);
+    }
+    public function addprofile()
+    {
+        // Get the user ID from the session
+        $userId = session()->get('id');
+
+        // Validate the form data
+        $validation = $this->validate([
+            'fullname' => 'required',
+            'idnumber' => 'required',
+            'email' => 'required',
+            'department' => 'required',
+            'gradelevel' => 'required',
+            'section' => 'required',
+
+        ]);
+
+
+        if (!$validation) {
+            // Validation failed, return to the form with errors
+            return view('studentdashboardview/myprofile', ['validation' => $this->validator]);
+        }
+
+        // If validation passes, insert the data into the database
+        $this->prof->save([
+            'user_id' => $userId,
+            'fullname' => $this->request->getPost('fullname'),
+            'idnumber' => $this->request->getPost('idnumber'),
+            'email' => $this->request->getPost('email'),
+            'department' => $this->request->getPost('department'),
+            'gradelevel' => $this->request->getPost('gradelevel'),
+            'section' => $this->request->getPost('section'),
+        ]);
+
+        // Redirect to a success page or display a success message
+        return redirect()->to('/studentprofile')->with('success', 'Research added successfully');
     }
 }

@@ -27,8 +27,6 @@ $routes->match(['get', 'post'], 'verify/(:any)', 'UserController::verify/$1');
 $routes->get('/studentdashboard', 'StudentDashboardController::studentdashboard');
 $routes->get('/studentprofile', 'StudentDashboardController::studentprofile');
 $routes->post('/addprofile', 'StudentDashboardController::addprofile');
-$routes->post('/studentprofile/edit/(:num)', 'ResearchController::prodileedit/$1');
-$routes->post('/studentprofile/update', 'ResearchController::profileupdate');
 
 //research papers
 $routes->get('/researchpapers', 'ResearchController::researchpapers');

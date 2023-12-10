@@ -34,7 +34,7 @@
                                               <h3 class="card-title mb-0"><?= $totalResearch ?></h3>
                                           </div>
                                           <div class="col-4 text-right">
-                                              <span class="sparkline inlineline"></span>
+                                              <span class="fe fe-database text-success fe-12" style="font-size: xx-large;"></span>
                                           </div>
                                       </div> <!-- /. row -->
                                   </div> <!-- /. card-body -->
@@ -49,10 +49,10 @@
                                               <h3 class="card-title mb-0"><?= $ownresearch ?></h3>
                                           </div>
                                           <div class="col-4 text-right">
-                                              <span class="sparkline inlinepie"></span>
+                                              <span class="fe fe-file-text text-warning fe-12" style="font-size: xx-large;"></span>
                                           </div>
                                       </div> <!-- /. row -->
-                                  </div> <!-- /. card-body -->
+                                  </div> <!-- /. card-body fe-database-->
                               </div> <!-- /. card -->
                           </div> <!-- /. col -->
                           <div class="col-md-4">
@@ -64,7 +64,7 @@
                                               <h3 class="card-title mb-0"><?= $upvotesCount ?></h3>
                                           </div>
                                           <div class="col-4 text-right">
-                                              <span class="sparkline inlinebar"></span>
+                                              <span class="fe fe-heart text-danger fe-12" style="font-size: xx-large;"></span>
                                           </div>
                                       </div> <!-- /. row -->
                                   </div> <!-- /. card-body -->
