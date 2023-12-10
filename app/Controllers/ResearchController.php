@@ -50,7 +50,9 @@ class ResearchController extends BaseController
         if (!session()->get('isLoggedIn')) {
             return redirect()->to('/logins');
         } else {
+
             $data = [
+
                 'output' => $this->output->findAll()
             ];
             return view('studentdashboardview/researchpaperview', $data);

@@ -2052,3 +2052,203 @@ Config\App::$baseURL is invalid.
 #21 {main}
 in SYSTEMPATH\HTTP\SiteURI.php on line 199.
  1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2023-12-10 12:17:09 --> Undefined variable $totalResearch
+in APPPATH\Views\student_dashboard\dashboard.php on line 34.
+ 1 APPPATH\Views\student_dashboard\dashboard.php(34): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $totalResearch', 'C:\\laragon\\www\\archivez_ci4_final_repo\\app\\Views\\student_dashboard\\dashboard.php', 34)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\archivez_ci4_final_repo\\app\\Views\\student_dashboard\\dashboard.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(469): CodeIgniter\View\View->render('/student_dashboard/dashboard', null, true)
+ 5 APPPATH\Views\studentdashboardview\studentdashboard.php(6): CodeIgniter\View\View->include('/student_dashboard/dashboard')
+ 6 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\archivez_ci4_final_repo\\app\\Views\\studentdashboardview\\studentdashboard.php')
+ 7 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1190): CodeIgniter\View\View->render('studentdashboardview/studentdashboard', [], true)
+ 9 APPPATH\Controllers\StudentDashboardController.php(23): view('studentdashboardview/studentdashboard')
+10 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\StudentDashboardController->studentdashboard()
+11 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\StudentDashboardController))
+12 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\archivez_ci4_final_repo\\public\\index.php')
+CRITICAL - 2023-12-10 12:19:36 --> Undefined variable $totalResearch
+in APPPATH\Views\student_dashboard\dashboard.php on line 34.
+ 1 APPPATH\Views\student_dashboard\dashboard.php(34): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $totalResearch', 'C:\\laragon\\www\\archivez_ci4_final_repo\\app\\Views\\student_dashboard\\dashboard.php', 34)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\archivez_ci4_final_repo\\app\\Views\\student_dashboard\\dashboard.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(469): CodeIgniter\View\View->render('/student_dashboard/dashboard', null, true)
+ 5 APPPATH\Views\studentdashboardview\studentdashboard.php(6): CodeIgniter\View\View->include('/student_dashboard/dashboard')
+ 6 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\archivez_ci4_final_repo\\app\\Views\\studentdashboardview\\studentdashboard.php')
+ 7 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1190): CodeIgniter\View\View->render('studentdashboardview/studentdashboard', [], true)
+ 9 APPPATH\Controllers\StudentDashboardController.php(23): view('studentdashboardview/studentdashboard')
+10 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\StudentDashboardController->studentdashboard()
+11 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\StudentDashboardController))
+12 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\archivez_ci4_final_repo\\public\\index.php')
+CRITICAL - 2023-12-10 12:19:38 --> Undefined variable $totalResearch
+in APPPATH\Views\student_dashboard\dashboard.php on line 34.
+ 1 APPPATH\Views\student_dashboard\dashboard.php(34): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $totalResearch', 'C:\\laragon\\www\\archivez_ci4_final_repo\\app\\Views\\student_dashboard\\dashboard.php', 34)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\archivez_ci4_final_repo\\app\\Views\\student_dashboard\\dashboard.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(469): CodeIgniter\View\View->render('/student_dashboard/dashboard', null, true)
+ 5 APPPATH\Views\studentdashboardview\studentdashboard.php(6): CodeIgniter\View\View->include('/student_dashboard/dashboard')
+ 6 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\archivez_ci4_final_repo\\app\\Views\\studentdashboardview\\studentdashboard.php')
+ 7 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1190): CodeIgniter\View\View->render('studentdashboardview/studentdashboard', [], true)
+ 9 APPPATH\Controllers\StudentDashboardController.php(23): view('studentdashboardview/studentdashboard')
+10 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\StudentDashboardController->studentdashboard()
+11 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\StudentDashboardController))
+12 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\archivez_ci4_final_repo\\public\\index.php')
+CRITICAL - 2023-12-10 12:29:44 --> Undefined variable $ownResearchIds
+in APPPATH\Views\student_dashboard\dashboard.php on line 50.
+ 1 APPPATH\Views\student_dashboard\dashboard.php(50): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $ownResearchIds', 'C:\\laragon\\www\\archivez_ci4_final_repo\\app\\Views\\student_dashboard\\dashboard.php', 50)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\archivez_ci4_final_repo\\app\\Views\\student_dashboard\\dashboard.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(469): CodeIgniter\View\View->render('/student_dashboard/dashboard', null, true)
+ 5 APPPATH\Views\studentdashboardview\studentdashboard.php(6): CodeIgniter\View\View->include('/student_dashboard/dashboard')
+ 6 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\archivez_ci4_final_repo\\app\\Views\\studentdashboardview\\studentdashboard.php')
+ 7 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1190): CodeIgniter\View\View->render('studentdashboardview/studentdashboard', [], true)
+ 9 APPPATH\Controllers\StudentDashboardController.php(43): view('studentdashboardview/studentdashboard', [...])
+10 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\StudentDashboardController->studentdashboard()
+11 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\StudentDashboardController))
+12 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\archivez_ci4_final_repo\\public\\index.php')
+CRITICAL - 2023-12-10 13:21:50 --> Undefined variable $output
+in APPPATH\Views\student_dashboard\profile.php on line 137.
+ 1 APPPATH\Views\student_dashboard\profile.php(137): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $output', 'C:\\laragon\\www\\archivez_ci4_final_repo\\app\\Views\\student_dashboard\\profile.php', 137)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\archivez_ci4_final_repo\\app\\Views\\student_dashboard\\profile.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(469): CodeIgniter\View\View->render('/student_dashboard/profile', null, true)
+ 5 APPPATH\Views\studentdashboardview\myprofile.php(6): CodeIgniter\View\View->include('/student_dashboard/profile')
+ 6 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\archivez_ci4_final_repo\\app\\Views\\studentdashboardview\\myprofile.php')
+ 7 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1190): CodeIgniter\View\View->render('studentdashboardview/myprofile', [], true)
+ 9 APPPATH\Controllers\StudentDashboardController.php(92): view('studentdashboardview/myprofile', [...])
+10 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\StudentDashboardController->studentprofile()
+11 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\StudentDashboardController))
+12 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\archivez_ci4_final_repo\\public\\index.php')
+CRITICAL - 2023-12-10 13:22:35 --> Undefined variable $output
+in APPPATH\Views\student_dashboard\profile.php on line 137.
+ 1 APPPATH\Views\student_dashboard\profile.php(137): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $output', 'C:\\laragon\\www\\archivez_ci4_final_repo\\app\\Views\\student_dashboard\\profile.php', 137)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\archivez_ci4_final_repo\\app\\Views\\student_dashboard\\profile.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(469): CodeIgniter\View\View->render('/student_dashboard/profile', null, true)
+ 5 APPPATH\Views\studentdashboardview\myprofile.php(6): CodeIgniter\View\View->include('/student_dashboard/profile')
+ 6 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\archivez_ci4_final_repo\\app\\Views\\studentdashboardview\\myprofile.php')
+ 7 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1190): CodeIgniter\View\View->render('studentdashboardview/myprofile', [], true)
+ 9 APPPATH\Controllers\StudentDashboardController.php(94): view('studentdashboardview/myprofile', [...])
+10 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\StudentDashboardController->studentprofile()
+11 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\StudentDashboardController))
+12 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\archivez_ci4_final_repo\\public\\index.php')
+ERROR - 2023-12-10 13:44:47 --> mysqli_sql_exception: Unknown column 'research_id' in 'where clause' in C:\laragon\www\archivez_ci4_final_repo\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\archivez_ci4_final_repo\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\laragon\www\archivez_ci4_final_repo\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\laragon\www\archivez_ci4_final_repo\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\laragon\www\archivez_ci4_final_repo\system\Database\BaseBuilder.php(1699): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\laragon\www\archivez_ci4_final_repo\system\Model.php(599): CodeIgniter\Database\BaseBuilder->countAllResults(true)
+#5 C:\laragon\www\archivez_ci4_final_repo\app\Controllers\StudentDashboardController.php(78): CodeIgniter\Model->countAllResults()
+#6 C:\laragon\www\archivez_ci4_final_repo\system\CodeIgniter.php(942): App\Controllers\StudentDashboardController->studentprofile()
+#7 C:\laragon\www\archivez_ci4_final_repo\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\StudentDashboardController))
+#8 C:\laragon\www\archivez_ci4_final_repo\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\laragon\www\archivez_ci4_final_repo\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 C:\laragon\www\archivez_ci4_final_repo\system\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\...')
+#11 {main}
+CRITICAL - 2023-12-10 13:44:47 --> Unknown column 'research_id' in 'where clause'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1699): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM `research`
+WHERE `research_id` = :research_id:', [...], false)
+ 2 SYSTEMPATH\Model.php(599): CodeIgniter\Database\BaseBuilder->countAllResults(true)
+ 3 APPPATH\Controllers\StudentDashboardController.php(78): CodeIgniter\Model->countAllResults()
+ 4 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\StudentDashboardController->studentprofile()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\StudentDashboardController))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\archivez_ci4_final_repo\\public\\index.php')
+ERROR - 2023-12-10 13:44:55 --> mysqli_sql_exception: Unknown column 'research_id' in 'where clause' in C:\laragon\www\archivez_ci4_final_repo\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\archivez_ci4_final_repo\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\laragon\www\archivez_ci4_final_repo\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\laragon\www\archivez_ci4_final_repo\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\laragon\www\archivez_ci4_final_repo\system\Database\BaseBuilder.php(1699): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\laragon\www\archivez_ci4_final_repo\system\Model.php(599): CodeIgniter\Database\BaseBuilder->countAllResults(true)
+#5 C:\laragon\www\archivez_ci4_final_repo\app\Controllers\StudentDashboardController.php(78): CodeIgniter\Model->countAllResults()
+#6 C:\laragon\www\archivez_ci4_final_repo\system\CodeIgniter.php(942): App\Controllers\StudentDashboardController->studentprofile()
+#7 C:\laragon\www\archivez_ci4_final_repo\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\StudentDashboardController))
+#8 C:\laragon\www\archivez_ci4_final_repo\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\laragon\www\archivez_ci4_final_repo\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 C:\laragon\www\archivez_ci4_final_repo\system\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\...')
+#11 {main}
+CRITICAL - 2023-12-10 13:44:55 --> Unknown column 'research_id' in 'where clause'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1699): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM `research`
+WHERE `research_id` = :research_id:', [...], false)
+ 2 SYSTEMPATH\Model.php(599): CodeIgniter\Database\BaseBuilder->countAllResults(true)
+ 3 APPPATH\Controllers\StudentDashboardController.php(78): CodeIgniter\Model->countAllResults()
+ 4 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\StudentDashboardController->studentprofile()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\StudentDashboardController))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\archivez_ci4_final_repo\\public\\index.php')
+ERROR - 2023-12-10 13:45:28 --> mysqli_sql_exception: Unknown column 'research_id' in 'where clause' in C:\laragon\www\archivez_ci4_final_repo\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\archivez_ci4_final_repo\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\laragon\www\archivez_ci4_final_repo\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\laragon\www\archivez_ci4_final_repo\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\laragon\www\archivez_ci4_final_repo\system\Database\BaseBuilder.php(1699): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\laragon\www\archivez_ci4_final_repo\system\Model.php(599): CodeIgniter\Database\BaseBuilder->countAllResults(true)
+#5 C:\laragon\www\archivez_ci4_final_repo\app\Controllers\StudentDashboardController.php(42): CodeIgniter\Model->countAllResults()
+#6 C:\laragon\www\archivez_ci4_final_repo\system\CodeIgniter.php(942): App\Controllers\StudentDashboardController->studentdashboard()
+#7 C:\laragon\www\archivez_ci4_final_repo\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\StudentDashboardController))
+#8 C:\laragon\www\archivez_ci4_final_repo\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\laragon\www\archivez_ci4_final_repo\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 C:\laragon\www\archivez_ci4_final_repo\system\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\...')
+#11 {main}
+CRITICAL - 2023-12-10 13:45:28 --> Unknown column 'research_id' in 'where clause'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1699): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM `research`
+WHERE `research_id` = :research_id:', [...], false)
+ 2 SYSTEMPATH\Model.php(599): CodeIgniter\Database\BaseBuilder->countAllResults(true)
+ 3 APPPATH\Controllers\StudentDashboardController.php(42): CodeIgniter\Model->countAllResults()
+ 4 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\StudentDashboardController->studentdashboard()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\StudentDashboardController))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\archivez_ci4_final_repo\\public\\index.php')
+ERROR - 2023-12-10 13:46:46 --> mysqli_sql_exception: Unknown column 'research_id' in 'where clause' in C:\laragon\www\archivez_ci4_final_repo\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\archivez_ci4_final_repo\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\laragon\www\archivez_ci4_final_repo\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\laragon\www\archivez_ci4_final_repo\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\laragon\www\archivez_ci4_final_repo\system\Database\BaseBuilder.php(1699): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\laragon\www\archivez_ci4_final_repo\system\Model.php(599): CodeIgniter\Database\BaseBuilder->countAllResults(true)
+#5 C:\laragon\www\archivez_ci4_final_repo\app\Controllers\StudentDashboardController.php(78): CodeIgniter\Model->countAllResults()
+#6 C:\laragon\www\archivez_ci4_final_repo\system\CodeIgniter.php(942): App\Controllers\StudentDashboardController->studentprofile()
+#7 C:\laragon\www\archivez_ci4_final_repo\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\StudentDashboardController))
+#8 C:\laragon\www\archivez_ci4_final_repo\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\laragon\www\archivez_ci4_final_repo\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 C:\laragon\www\archivez_ci4_final_repo\system\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\...')
+#11 {main}
+CRITICAL - 2023-12-10 13:46:46 --> Unknown column 'research_id' in 'where clause'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1699): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM `research`
+WHERE `research_id` = :research_id:', [...], false)
+ 2 SYSTEMPATH\Model.php(599): CodeIgniter\Database\BaseBuilder->countAllResults(true)
+ 3 APPPATH\Controllers\StudentDashboardController.php(78): CodeIgniter\Model->countAllResults()
+ 4 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\StudentDashboardController->studentprofile()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\StudentDashboardController))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\archivez_ci4_final_repo\\public\\index.php')

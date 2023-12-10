@@ -11,86 +11,85 @@
                          </div>
                          <div class="col">
                              <div class="row align-items-center"><!--php echo session()->get('firstname'); ?> php echo session()->get('lastname'); ?>-->
-                                 <div class="col-lg-6">
-                                     <h4 class="mb-1">Name: <?php echo session()->get('fullname'); ?> </h4>
-                                     <p class="mb-1">ID Number: <?php echo session()->get('idnumber'); ?></p>
-                                     <p class="mb-1">Email: <?php echo session()->get('email'); ?></p>
-                                     <p class="mb-1">Department: <?php echo session()->get('department'); ?></p>
-                                     <p class="mb-1">Grade Level and Section: <?php echo session()->get('gradelevel'); ?> <?php echo session()->get('section'); ?></p>
+                                 <div class="col-lg-4">
+                                     <h4 class="mb-1">Name: </h4>
+                                     <p class="mb-1">ID Number: </p>
+                                     <p class="mb-1">Email: </p>
+                                     <p class="mb-1">Department: </p>
+                                     <p class="mb-1">Grade Level and Section: </p>
                                      <button type="button" class="btn mb-2 btn-primary" data-toggle="modal" data-target="#varyModal" data-whatever="@mdo">Add Profile</button>
                                  </div>
-                                 <div class="col-lg-6">
+                                 <!-- Inside your HTML, where you want to display the values -->
+                                 <div class="col-lg-8">
                                      <div class="card shadow mb-4">
                                          <div class="card-body">
-                                             <p class="mb-0"><strong class="mb-0 text-uppercase text-muted">Contribution</strong></p>
-                                             <h3 class="mb-0">$2,562.30</h3>
-                                             <p class="text-muted">+18.9% Last week</p>
-                                             <div class="chart-box mt-n5">
-                                                 <div id="lineChartWidget"></div>
+                                             <p class="mb-0"><strong class="mb-0 text-uppercase text-muted">Research Papers Uploaded</strong></p>
+                                             <h3 class="mb-0"><?= $totalUserResearch ?></h3>
+                                             <div class="my-4">
+                                                 <canvas id="lineChart" style="height: 100px;"></canvas>
                                              </div>
+                                             <!-- Add other sections for Upvotes, Comments, and Bookmarks as needed -->
                                              <div class="row">
                                                  <div class="col-md-4 text-center mt-3">
-                                                     <p class="mb-1 text-muted">Completions</p>
-                                                     <h6 class="mb-0">26</h6>
-                                                     <span class="small text-muted">+20%</span>
-                                                     <span class="fe fe-arrow-up text-success fe-12"></span>
+                                                     <p class="mb-1 text-muted">Upvotes</p>
+                                                     <h6 class="mb-0"><?= $totalUpvotes ?><span class="fe fe-arrow-up text-success fe-12"></span></h6>
+
+                                                     <!-- Add relevant percentage and arrow information -->
                                                  </div>
                                                  <div class="col-md-4 text-center mt-3">
-                                                     <p class="mb-1 text-muted">Goal Value</p>
-                                                     <h6 class="mb-0">$260</h6>
-                                                     <span class="small text-muted">+6%</span>
-                                                     <span class="fe fe-arrow-up text-success fe-12"></span>
+                                                     <p class="mb-1 text-muted">Comments</p>
+                                                     <h6 class="mb-0"><?= $totalComments ?></h6>
+                                                     <!-- Add relevant percentage and arrow information -->
                                                  </div>
                                                  <div class="col-md-4 text-center mt-3">
-                                                     <p class="mb-1 text-muted">Conversion</p>
-                                                     <h6 class="mb-0">6%</h6>
-                                                     <span class="small text-muted">-2%</span>
-                                                     <span class="fe fe-arrow-down text-danger fe-12"></span>
+                                                     <p class="mb-1 text-muted">Bookmarks</p>
+                                                     <h6 class="mb-0"><?= $totalBookmarks ?></h6>
+                                                     <!-- Add relevant percentage and arrow information -->
                                                  </div>
                                              </div>
                                          </div> <!-- .card-body -->
                                      </div> <!-- .card -->
                                  </div>
+
                                  <div class="col-lg-10">
                                      <div class="modal fade" id="varyModal" tabindex="-1" role="dialog" aria-labelledby="varyModalLabel" aria-hidden="true">
                                          <div class="modal-dialog" role="document">
                                              <div class="modal-content">
                                                  <div class="modal-header">
-                                                     <h5 class="modal-title" id="varyModalLabel">Edit Profile</h5>
+                                                     <h5 class="modal-title" id="varyModalLabel">Add Profile</h5>
                                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                          <span aria-hidden="true">&times;</span>
                                                      </button>
                                                  </div>
                                                  <div class="modal-body">
-                                                     <form action="/studentprofile/update" method="post">
-                                                         <input type="hidden" name="id" id="editid">
+                                                     <form action="/addprofile" method="post">
                                                          <div class="form-group">
                                                              <label for="firstname" class="col-form-label">First Name: </label>
-                                                             <input type="text" class="form-control" id="editfirstname" name="firstname">
+                                                             <input type="text" class="form-control" name="firstname">
                                                          </div>
                                                          <div class="form-group">
                                                              <label for="lastname" class="col-form-label">Last Name: </label>
-                                                             <input type="text" class="form-control" id="editlastname" name="lastname">
+                                                             <input type="text" class="form-control" name="lastname">
                                                          </div>
                                                          <div class="form-group">
                                                              <label for="idnumber" class="col-form-label">ID Number:</label>
-                                                             <input type="text" class="form-control" id="editidnumber" name="idnumber">
+                                                             <input type="text" class="form-control" name="idnumber">
                                                          </div>
                                                          <div class="form-group">
                                                              <label for="email" class="col-form-label">Email:</label>
-                                                             <input type="text" class="form-control" id="editemail" name="email">
+                                                             <input type="text" class="form-control" name="email">
                                                          </div>
                                                          <div class="form-group">
                                                              <label for="department" class="col-form-label">Department:</label>
-                                                             <input type="text" class="form-control" id="editdepartment" name="department">
+                                                             <input type="text" class="form-control" name="department">
                                                          </div>
                                                          <div class="form-group">
                                                              <label for="gradelevel" class="col-form-label">Grade Level:</label>
-                                                             <input type="text" class="form-control" id="editgradelevel" name="gradelevel">
+                                                             <input type="text" class="form-control" name="gradelevel">
                                                          </div>
                                                          <div class="form-group">
                                                              <label for="section" class="col-form-label">Section:</label>
-                                                             <input type="text" class="form-control" id="editsection" name="section">
+                                                             <input type="text" class="form-control" name="section">
                                                          </div>
                                                          <div class="modal-footer">
                                                              <button type="button" class="btn mb-2 btn-secondary" data-dismiss="modal">Close</button>
@@ -138,7 +137,7 @@
                                          </tr>
                                      </thead>
                                      <tbody>
-                                         <?php foreach ($output as $res) : ?>
+                                         <?php foreach ($userResearch as $res) : ?>
                                              <tr>
                                                  <td>
                                                      <div class="custom-control custom-checkbox">
@@ -358,3 +357,41 @@
              text-decoration: none !important;
          }
      </style>
+     <script>
+         var weeklyCounts = <?= json_encode($weeklyCounts) ?>;
+     </script>
+     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+     <script>
+         document.addEventListener('DOMContentLoaded', function() {
+             var ctx = document.getElementById('lineChart').getContext('2d');
+
+             var data = {
+                 labels: Object.keys(weeklyCounts),
+                 datasets: [{
+                     label: 'Research Papers Uploaded',
+                     data: Object.values(weeklyCounts),
+                     borderColor: 'rgb(75, 192, 192)',
+                     fill: false,
+                     tension: 0.1,
+                 }]
+             };
+
+             var config = {
+                 type: 'line',
+                 data: data,
+                 options: {
+                     scales: {
+                         x: {
+                             type: 'linear',
+                             position: 'bottom'
+                         },
+                         y: {
+                             min: 0,
+                         }
+                     }
+                 }
+             };
+
+             var myChart = new Chart(ctx, config);
+         });
+     </script>

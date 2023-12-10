@@ -17,5 +17,6 @@
     <link rel="stylesheet" href="<?= base_url() ?>dashboard/css/app-light.css" id="lightTheme">
     <link rel="stylesheet" href="<?= base_url() ?>dashboard/css/app-dark.css" id="darkTheme" disabled>
     <link rel="stylesheet" href="<?= base_url() ?>dashboard/css/dataTables.bootstrap4.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 </head>
