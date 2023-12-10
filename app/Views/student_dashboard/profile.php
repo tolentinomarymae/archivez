@@ -1,7 +1,7 @@
      <main role="main" class="main-content">
          <div class="container-fluid">
              <div class="row justify-content-center">
-                 <div class="col-12" style="background-color: white;">
+                 <div class="col-12">
                      <h2 class="h3 mb-1 mt-4 page-title">Profile</h2>
                      <div class="row mt-0 align-items-center">
                          <div class="col-md-3 text-center mb-2">

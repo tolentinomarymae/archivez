@@ -77,7 +77,6 @@ class UserController extends BaseController
         $email = $this->request->getVar('email');
         $password = $this->request->getVar('password');
 
-
         $data = $registermodel->where('email', $email)->first();
 
         if ($data) {
@@ -85,35 +84,42 @@ class UserController extends BaseController
             $authenticatePassword = password_verify($password, $pass);
 
             if ($authenticatePassword) {
-                $ses_data = [
-                    'id' => $data['id'],
-                    'fullname' => $data['fullname'],
-                    'email' => $data['email'],
-                    'idnumber' => $data['idnumber'],
-                    'department' => $data['department'],
-                    'gradelevel' => $data['gradelevel'],
-                    'section' => $data['section'],
-                    'isLoggedIn' => TRUE,
-                    'usertype' => $data['usertype'],
+                if ($data['status'] == 'active') {
+                    $ses_data = [
+                        'id' => $data['id'],
+                        'fullname' => $data['fullname'],
+                        'email' => $data['email'],
+                        'idnumber' => $data['idnumber'],
+                        'department' => $data['department'],
+                        'gradelevel' => $data['gradelevel'],
+                        'section' => $data['section'],
+                        'isLoggedIn' => TRUE,
+                        'usertype' => $data['usertype'],
+                    ];
 
-                ];
+                    $session->set($ses_data);
 
-                $session->set($ses_data);
-
-                if ($data['usertype'] === 'student') {
-                    return redirect()->to('/studentdashboard');
-                } else if ($data['usertype'] === 'instructor') {
-                    return redirect()->to('/instructordashboard');
-                } else if ($data['usertype'] === 'admin') {
-                    return redirect()->to('/admindashboard');
+                    if ($data['usertype'] === 'student') {
+                        return redirect()->to('/studentdashboard');
+                    } else if ($data['usertype'] === 'instructor') {
+                        return redirect()->to('/instuctordashboard');
+                    } else if ($data['usertype'] === 'admin') {
+                        return redirect()->to('/admindashboard');
+                    }
+                } else {
+                    $session->setFlashdata('msg', 'Account was not verified.');
                 }
             } else {
                 $session->setFlashdata('msg', 'Name or Password is incorrect.');
-
-                return redirect()->to('/logins');
             }
+        } else {
+            $session->setFlashdata('msg', 'Email not found.'); // Flash message for email not found
         }
+
+        return redirect()->to('/logins');
     }
+
+
     public function login()
     {
         session()->remove(['id', 'fullname', 'email', 'isLoggedIn', 'usertype']);

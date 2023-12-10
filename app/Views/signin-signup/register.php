@@ -34,7 +34,7 @@
 			<?php endif; ?>
 
 			<!-- FORM CONTAINER BEGIN -->
-			<div class="col-lg-6 col-md-6 infinity-form-container">
+			<div class=" col-lg-6 col-md-6 infinity-form-container">
 				<div class="col-lg-9 col-md-12 col-sm-9 col-xs-12 infinity-form">
 					<!-- Company Logo -->
 					<div class="text-center mb-1 mt-3">
@@ -44,7 +44,7 @@
 						<h4>Register new account</h4>
 					</div>
 					<?php if (isset($validation)) : ?>
-						<div class="alert alert-warning">
+						<div class="alert alert-danger">
 							<?= $validation->listErrors() ?>
 						</div>
 					<?php endif ?>
