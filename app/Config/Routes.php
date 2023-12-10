@@ -14,6 +14,15 @@ $routes->post('/register', 'UserController::register');
 $routes->get('/logins', 'UserController::login');
 $routes->post('/loginauth', 'UserController::loginauth');
 
+// email
+
+$routes->match(['get', 'post'], '/mail', 'UserController::mail');
+$routes->match(['get', 'post'], '/signupview', 'UserController::signupview');
+$routes->match(['get', 'post'], '/signups', 'UserController::signups');
+$routes->match(['get', 'post'], 'verify/(:any)', 'UserController::verify/$1');
+
+
+
 //dashboard
 $routes->get('/studentdashboard', 'StudentDashboardController::studentdashboard');
 $routes->get('/studentprofile', 'StudentDashboardController::studentprofile');

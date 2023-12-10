@@ -120,4 +120,99 @@ class UserController extends BaseController
         helper(['form']);
         return view('signin-signup/login');
     }
+    /* public function mail()
+    {
+        $this->sendMail();
+    }*/
+
+    public function sendMail($to, $subject, $message)
+    {
+        $email = \Config\Services::email();
+        $email->setMailType("html");
+        $email->setTo($to);
+        $email->setFrom('marymaetolentino03@gmail.com', $subject);
+        $email->setMessage($message);
+
+        if ($email->send()) {
+            echo 'email sent successfully';
+        } else {
+            $data = $email->printDebugger(['headers']);
+            print($data);
+        }
+    }
+
+    public function token($length)
+    {
+        $str_result = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+        return substr(str_shuffle($str_result), 0, $length);
+    }
+
+    public function signupview()
+    {
+        helper('form');
+        $data = [];
+        return view('signin-signup/register', $data);
+    }
+
+    public function signups()
+    {
+        helper('form');
+        $rules = [
+            'fullname' => 'required|min_length[1]|max_length[100]',
+            'email' => 'required|min_length[1]|max_length[100]|is_unique[users.email]',
+            'department' => 'required|min_length[1]|max_length[100]',
+            'idnumber' => 'required|min_length[1]|max_length[100]',
+            'password' => 'required|min_length[8]|max_length[100]',
+            'confirmpassword' => 'matches[password]',
+        ];
+
+        if ($this->validate($rules)) {
+            $registermodel = new UserModel();
+            $token = $this->token(100);
+            $to = $this->request->getVar('email');
+
+            $data = [
+                'fullname' => $this->request->getVar('fullname'),
+                'idnumber' => $this->request->getVar('idnumber'),
+                'department' => $this->request->getVar('department'),
+                'gradelevel' => $this->request->getVar('gradelevel'),
+                'section' => $this->request->getVar('section'),
+                'usertype' => $this->request->getVar('usertype'),
+                'email' => $to,
+                'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
+                'token' => $token,
+                'status' => 'inactive'
+            ];
+
+            $registermodel->save($data);
+
+            $subject = 'Please confirm your registration';
+            $message = 'Hi, ' . $this->request->getVar('fullname') . '! Welcome to our website! To continue with your registration, please confirm your account by clicking this <a href="' . base_url('verify/' . $token) . '">link</a>';
+            $this->sendMail($to, $subject, $message);
+
+            return redirect()->to('logins');
+        } else {
+            $data['validation'] = $this->validator;
+            return view('signin-signup/register', $data);
+        }
+    }
+
+    public function verify($id = null)
+    {
+        $ac = new UserModel();
+        $acc = $ac->where('token', $id)->first();
+
+        if ($acc) {
+            $data = [
+                'token' => $this->token(100),
+                'status' => 'active'
+            ];
+
+            $ac->set($data)->where('token', $id)->update();
+            $session = session();
+            $session->setFlashdata('msg', 'Account was verified');
+        }
+
+        return redirect()->to('logins');
+    }
 }

@@ -43,8 +43,13 @@
 					<div class="text-center mb-2">
 						<h4>Register new account</h4>
 					</div>
+					<?php if (isset($validation)) : ?>
+						<div class="alert alert-warning">
+							<?= $validation->listErrors() ?>
+						</div>
+					<?php endif ?>
 					<!-- Form -->
-					<form action="/register" method="POST" class="px-3">
+					<form action="/signups" method="POST" class="px-3">
 						<!-- Input Box -->
 						<div class="form-input">
 							<span><i class="fa fa-user"></i></span>
@@ -60,11 +65,11 @@
 						</div>
 						<div class="form-input">
 							<span><i class="fa fa-graduation-cap"></i></span>
-							<input type="text" name="gradelevel" placeholder="Grade Level (Disregard if your an instructor)l" tabindex="10">
+							<input type="text" name="gradelevel" placeholder="Grade Level (Disregard if you're an instructor)" tabindex="10">
 						</div>
 						<div class="form-input">
 							<span><i class="fa fa-users"></i></span>
-							<input type="text" name="section" placeholder="Section (Disregard if your an instructor)" tabindex="10">
+							<input type="text" name="section" placeholder="Section (Disregard if you're an instructor)" tabindex="10">
 						</div>
 						<div class="form-input">
 							<select name="usertype" id="usertype" required>
@@ -82,7 +87,10 @@
 							<span><i class="fa fa-lock"></i></span>
 							<input type="password" name="password" placeholder="Password" required>
 						</div>
-
+						<div class="form-input">
+							<span><i class="fa fa-lock"></i></span>
+							<input type="password" name="confirmpassword" placeholder="Confirm Password" required>
+						</div>
 						<!-- Login Button -->
 						<div class="mb-3">
 							<button type="submit" name="signup" id="signup" class="btn btn-block form-submit">Register</button>

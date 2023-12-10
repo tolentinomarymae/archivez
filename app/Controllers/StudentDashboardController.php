@@ -16,6 +16,10 @@ class StudentDashboardController extends BaseController
 
     public function studentdashboard()
     {
+        // Check if the user is logged in
+        if (!session()->get('isLoggedIn')) {
+            return redirect()->to('/logins');
+        }
         return view('studentdashboardview/studentdashboard');
     }
     public function studentprofile()

@@ -107,7 +107,10 @@ class ResearchController extends BaseController
     }
     public function viewresearchpaper()
     {
-
+        // Check if the user is logged in
+        if (!session()->get('isLoggedIn')) {
+            return redirect()->to('/logins');
+        }
         $data = [
             'output' => $this->output->findAll()
         ];

@@ -55,7 +55,7 @@
 						</div>
 						<div class="text-center mb-2">
 							<div class="text-center mb-5 text-grey">Don't have an account?
-								<a class="register-link" href="/registerview">Register</a><br>
+								<a class="register-link" href="/signupview">Register</a><br>
 								<a class="register-link" href="/">Back to Home</a>
 
 							</div>
