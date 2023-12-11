@@ -4,7 +4,7 @@
             <div class="col-12">
                 <h2 class="mb-2 page-title">My Archived Research Outputs</h2>
 
-                <p class="card-text">These research papers are archive by you! You can restore it anytime so that it will be available for viewing!</p>
+                <p class="card-text">These research papers are archive by you! </p>
 
                 <div class="row my-4">
                     <!-- Small table -->

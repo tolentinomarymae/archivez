@@ -5,7 +5,6 @@
                 <h2 class="mb-2 page-title">Manage Section</h2>
                 <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addsectionmodal" class="btn_1">Add New</a>
 
-                <p class="card-text">Add </p>
 
                 <div class="row my-4">
                     <!-- Small table -->

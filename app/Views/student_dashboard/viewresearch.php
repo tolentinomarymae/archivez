@@ -10,13 +10,13 @@
             <div class="col-lg-12 mb-4">
                 <ul class="nav nav-pills" id="pills-tab2" role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link px-3 active" id="pills-home-tab2" data-toggle="pill" href="#pills-home2" role="tab" aria-controls="pills-home2" aria-selected="true"><span class="fe fe-user"></span></a>
+                        <a class="nav-link px-3 active" id="pills-home-tab2" data-toggle="pill" href="#pills-home2" role="tab" aria-controls="pills-home2" aria-selected="true"><span class="fe fe-align-center"></span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link px-3" id="pills-profile-tab2" data-toggle="pill" href="#pills-profile2" role="tab" aria-controls="pills-profile2" aria-selected="false"><span class="fe fe-file-text"></span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link px-3" id="pills-contact-tab2" data-toggle="pill" href="#pills-contact2" role="tab" aria-controls="pills-contact" aria-selected="false"><span class="fe fe-16 fe-bar-chart"></span></a>
+                        <a class="nav-link px-3" id="pills-contact-tab2" data-toggle="pill" href="#pills-contact2" role="tab" aria-controls="pills-contact" aria-selected="false"><span class="fe fe-16 fe-activity"></span></a>
                     </li>
                 </ul>
                 <div class="tab-content mb-2" id="pills-tabContent2">
@@ -45,7 +45,7 @@
                                         <div class="col-md-12">
                                             <p>Keywords: <strong><i><?= $output['keywords'] ?></i></strong></p>
                                             <p class="mb-4">Citation: <strong><i><?= $output['citation'] ?></i></strong></p>
-                                            <p class="mb-4">Abstract: <strong><?= $output['abstract'] ?></strong></p><?= $output['file'] ?>
+                                            <p class="mb-4">Abstract: <strong><?= $output['abstract'] ?></strong>
                                         </div>
                                     </div> <!-- /.card -->
                                 </div>
@@ -54,7 +54,7 @@
                     </div>
                     <div class="tab-pane fade " id="pills-profile2" role="tabpanel" aria-labelledby="pills-home-tab2">
                         <div class="card mb-0">
-                            <div class="card-body"> <iframe src="<?= base_url('uploads/' . $output['file']) ?>" width="100%" height="600px"></iframe></div>
+                            <div class="card-body"> <iframe src="<?= base_url('uploads/' . $output['file']) ?>" width="100%" height="1000px"></iframe></div>
                         </div>
                     </div>
                     <div class="tab-pane fade " id="pills-contact2" role="tabpanel" aria-labelledby="pills-home-tab2">

@@ -56,8 +56,7 @@
                                                     <td><?= $res['status'] ?></td>
                                                     <td><?= $res['file'] ?></td>
                                                     <td>
-                                                        <a href="<?= base_url('researchdetails/' . $res['id']) ?>" class="eyebtn"><i class="fe fe-eye"></i></a>
-                                                        <a href="<?= base_url('bookmarkResearch/' . $res['id']) ?>" class="bookmarkbtn"><i class="fe fe-bookmark"></i></a>
+                                                        <a href="<?= base_url('adminresearchdetails/' . $res['id']) ?>" class="eyebtn"><i class="fe fe-eye"></i></a>
                                                     </td>
                                                 </tr>
                                             <?php endforeach; ?>
@@ -109,9 +108,9 @@
             display: inline-block;
             font-size: 23px;
             border: none;
-            margin-right: 10px;
             border-radius: 5px;
             background-color: transparent;
+            text-align: center;
         }
 
 

@@ -26,49 +26,6 @@ class UserController extends BaseController
         return view('signin-signup/register', $data);
     }
 
-    public function register()
-    {
-
-        helper(['form']);
-
-        $rules = [
-            'fullname' => 'required|min_length[1]|max_length[100]',
-            'email' => 'required|min_length[1]|max_length[100]|is_unique[users.email]',
-            'department' => 'required|min_length[1]|max_length[100]',
-            'idnumber' => 'required|min_length[1]|max_length[100]',
-            'password' => 'required|min_length[8]|max_length[100]',
-
-        ];
-
-        if ($this->validate($rules)) {
-            $registermodel = new UserModel();
-
-            $uniid = md5(str_shuffle('abcdefghijklmnopqrstuvwxyz' . time()));
-            $data = [
-                'fullname' => $this->request->getVar('fullname'),
-                'idnumber' => $this->request->getVar('idnumber'),
-                'department' => $this->request->getVar('department'),
-                'gradelevel' => $this->request->getVar('gradelevel'),
-                'section' => $this->request->getVar('section'),
-                'usertype' => $this->request->getVar('usertype'),
-                'email' => $this->request->getVar('email'),
-                'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
-                'uniid' => $uniid,
-                'activation_date' => date("Y-m-d h:i:s")
-            ];
-
-
-            dd($registermodel);
-
-            dd($registermodel->save($data));
-
-            return redirect()->to('/logins');
-        } else {
-            $this->session->setTempdata('error', 'Sorry', 'Unable to create your account right now, Try again', 3);
-            $data['validation'] = $this->validator;
-            return view('signin-signup/register', $data);
-        }
-    }
 
     public function loginauth()
     {
@@ -89,10 +46,6 @@ class UserController extends BaseController
                         'id' => $data['id'],
                         'fullname' => $data['fullname'],
                         'email' => $data['email'],
-                        'idnumber' => $data['idnumber'],
-                        'department' => $data['department'],
-                        'gradelevel' => $data['gradelevel'],
-                        'section' => $data['section'],
                         'isLoggedIn' => TRUE,
                         'usertype' => $data['usertype'],
                     ];
@@ -166,8 +119,6 @@ class UserController extends BaseController
         $rules = [
             'fullname' => 'required|min_length[1]|max_length[100]',
             'email' => 'required|min_length[1]|max_length[100]|is_unique[users.email]',
-            'department' => 'required|min_length[1]|max_length[100]',
-            'idnumber' => 'required|min_length[1]|max_length[100]',
             'password' => 'required|min_length[8]|max_length[100]',
             'confirmpassword' => 'matches[password]',
         ];
@@ -179,10 +130,6 @@ class UserController extends BaseController
 
             $data = [
                 'fullname' => $this->request->getVar('fullname'),
-                'idnumber' => $this->request->getVar('idnumber'),
-                'department' => $this->request->getVar('department'),
-                'gradelevel' => $this->request->getVar('gradelevel'),
-                'section' => $this->request->getVar('section'),
                 'usertype' => $this->request->getVar('usertype'),
                 'email' => $to,
                 'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),

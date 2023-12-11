@@ -12,7 +12,7 @@ class MyProfileModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['fullname', 'idnumber', 'email', 'department', 'gradelevel', 'section', 'user_id'];
+    protected $allowedFields    = ['fullname', 'idnumber', 'email', 'department', 'gradelevel', 'section', 'profile_picture', 'user_id'];
 
     // Dates
     protected $useTimestamps = false;

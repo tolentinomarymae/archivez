@@ -56,22 +56,6 @@
 							<input type="text" name="fullname" placeholder="Full Name" tabindex="10" required>
 						</div>
 						<div class="form-input">
-							<span><i class="fa fa-id-card"></i></span>
-							<input type="text" name="idnumber" placeholder="ID Number" tabindex="10" required>
-						</div>
-						<div class="form-input">
-							<span><i class="fa fa-building"></i></span>
-							<input type="text" name="department" placeholder="Department" tabindex="10" required>
-						</div>
-						<div class="form-input">
-							<span><i class="fa fa-graduation-cap"></i></span>
-							<input type="text" name="gradelevel" placeholder="Grade Level (Disregard if you're an instructor)" tabindex="10">
-						</div>
-						<div class="form-input">
-							<span><i class="fa fa-users"></i></span>
-							<input type="text" name="section" placeholder="Section (Disregard if you're an instructor)" tabindex="10">
-						</div>
-						<div class="form-input">
 							<select name="usertype" id="usertype" required>
 								<option value="">User Type</option>
 								<option value="student">Student</option>

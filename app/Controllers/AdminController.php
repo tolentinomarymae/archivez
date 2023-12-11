@@ -10,25 +10,73 @@ use App\Models\TeacherModel;
 class AdminController extends BaseController
 {
     public $output;
-    public $adminmanage;
+    public $bookmark;
+    public $archive;
     public $secti;
+    public $adminmanage;
     public $subject;
+    public $comments;
+    public $upvote;
+
 
     public function __construct()
     {
         $this->output = new \App\Models\ResearchModel();
-        $this->adminmanage = new \App\Models\TeacherModel();
+        $this->bookmark = new \App\Models\BookmarkModel();
+        $this->archive = new \App\Models\ArchiveModel();
         $this->secti = new \App\Models\SectionsModel();
+        $this->adminmanage = new \App\Models\TeacherModel();
         $this->subject = new \App\Models\SubjectModel();
+        $this->comments = new \App\Models\CommentsModel();
+        $this->upvote = new \App\Models\UpvoteModel();
     }
+    // Add this code in the admindashboard method
     public function admindashboard()
     {
         if (!session()->get('isLoggedIn')) {
             return redirect()->to('/logins');
-        } else {
-            return view('admindashboardview/admindashboard');
         }
+
+        // Fetch all research papers uploaded per week this year
+        $allResearchPerWeek = $this->output
+            ->select('WEEK(uploaddate) as week, COUNT(*) as count')
+            ->where('YEAR(uploaddate)', date('Y'))
+            ->groupBy('WEEK(uploaddate)')
+            ->findAll();
+
+        // Get the currently logged-in user's ID
+        $userId = session()->get('id');
+        $output = $this->output->findAll();
+        $totalResearch = $this->output->countAllResults();
+        $ownresearch = $this->output->where('user_id', $userId)->countAllResults();
+        $approvedResearch = $this->output->where('status', 'approved')->countAllResults();
+        $commentedResearch = $this->comments->where('commentedby', $userId)->countAllResults();
+        $ownResearchIds = $this->output->where('user_id', $userId)->findAll();
+        $upvotesCount = 0;
+
+        foreach ($ownResearchIds as $research) {
+            $upvotesCount += $this->output->where('user_id', $research['id'])->countAllResults();
+        }
+
+        // Get the total number of teachers
+        $totalTeachers = $this->adminmanage->countAll(); // Assuming adminmanage is your TeacherModel
+
+        $data = [
+            'totalResearch' => $totalResearch,
+            'ownResearchIds' => $ownResearchIds,
+            'ownresearch' => $ownresearch,
+            'upvotesCount' => $upvotesCount,
+            'allResearchPerWeek' => $allResearchPerWeek,
+            'output' => $output,
+            'researchData' => json_encode($output), // Pass the research data to the view
+            'approvedResearch' => $approvedResearch,
+            'commentedResearch' => $commentedResearch,
+            'totalTeachers' => $totalTeachers, // Add the total number of teachers
+        ];
+
+        return view('admindashboardview/admindashboard', $data);
     }
+
     public function adminresearchpapers()
     {
         if (!session()->get('isLoggedIn')) {
@@ -283,6 +331,31 @@ class AdminController extends BaseController
         } else {
             // Redirect back to the field list with an error message if the field doesn't exist
             return redirect()->to('/managesubject')->with('error', 'field not found');
+        }
+    }
+    public function researchdetails($id)
+    {
+        // Get the research details
+        $output = $this->output->find($id);
+
+        if ($output) {
+            // Get the total upvotes for the research
+            $upvoteCount = $this->upvote->where('research_id', $id)->countAllResults();
+            $comments = $this->comments->where('research_id', $id)->findAll();
+
+            // Count the number of comments
+            $commentsCount = count($comments);
+            // Pass data to the view
+            $data = [
+                'output' => $output,
+                'upvoteCount' => $upvoteCount,
+                'comments' => $comments, // Pass the comments data
+                'commentsCount' => $commentsCount,
+            ];
+
+            return view('admindashboardview/researchdetails', $data);
+        } else {
+            return redirect()->to('/researchpapers');
         }
     }
 }

@@ -33,28 +33,9 @@
         // Open the modal
         $('#editresearchmodal').modal('show');
     }
-    $(document).ready(function() {
-        $('#editresearchmodal').on('show.bs.modal', function() {
-            $('#editresearchtitle').val('');
-            $('#editsubmittedto').val('');
-            $('#editsubject').val('');
-            $('#editauthor').val('');
-            $('#editidnumber').val('');
-            $('#editgradelevel').val('');
-            $('#editsection').val('');
-            $('#edituploaddate').val('');
-            $('#editabstract').val('');
-            $('#editkeywords').val('');
-            $('#editcitation').val('');
-            $('#editstatus').val('');
-            $('#editfile').val('');
-        });
-    });
 </script>
 
-<!-- Add this line to include Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
 <script src="<?= base_url() ?>dashboard/js/jquery.min.js"></script>
 <script src="<?= base_url() ?>dashboard/js/popper.min.js"></script>
 <script src="<?= base_url() ?>dashboard/js/moment.min.js"></script>

@@ -34,8 +34,8 @@ $routes->get('/insertresearch', 'ResearchController::insertresearch');
 $routes->post('/addresearch', 'ResearchController::addnewresearch');
 $routes->get('/viewresearch', 'ResearchController::viewresearchpaper');
 $routes->get('/myresearchoutput', 'ResearchController::myresearch');
-$routes->post('/myresearch/edit/(:num)', 'ResearchController::edit/$1');
-$routes->post('/myresearch/update', 'ResearchController::update');
+$routes->post('/myresearch/edit/(:num)', 'ResearchController::myresearchedit/$1');
+$routes->post('/myresearch/update', 'ResearchController::myresearchupdate');
 
 //research detatils
 $routes->get('/researchdetails/(:any)', 'ResearchController::researchdetails/$1');
@@ -51,6 +51,8 @@ $routes->get('/adminresearchpapers', 'AdminController::adminresearchpapers');
 $routes->get('/manageteachers', 'AdminController::manageteachers');
 $routes->get('/managesections', 'AdminController::managesection');
 $routes->get('/managesubject', 'AdminController::managesubject');
+$routes->get('/adminresearchdetails/(:any)', 'AdminController::researchdetails/$1');
+
 
 $routes->post('/addteacher', 'AdminController::addteacher');
 $routes->post('/addteacher/edit/(:num)', 'AdminController::editteacher/$1');
