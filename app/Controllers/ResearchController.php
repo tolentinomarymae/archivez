@@ -77,7 +77,7 @@ class ResearchController extends BaseController
             'keywords' => 'required',
             'citation' => 'required',
             'status' => 'required',
-            'file' => 'required'
+            'file' => 'uploaded[file]|max_size[file,1024]|ext_in[file,pdf]'
 
         ]);
 
@@ -86,6 +86,12 @@ class ResearchController extends BaseController
             return view('studentdashboardview/addresearch', ['validation' => $this->validator]);
         }
 
+        // Handle file upload
+        $file = $this->request->getFile('file');
+
+        // Move the uploaded file to the desired directory (you need to create this directory)
+        $newName = $file->getRandomName();
+        $file->move('./uploads', $newName);
         // If validation passes, insert the data into the database
         $this->output->save([
             'user_id' => $userId,
@@ -100,8 +106,7 @@ class ResearchController extends BaseController
             'abstract' => $this->request->getPost('abstract'),
             'keywords' => $this->request->getPost('keywords'),
             'citation' => $this->request->getPost('citation'),
-            'status' => $this->request->getPost('status'),
-            'file' => $this->request->getPost('file'),
+            'status' => $this->request->getPost('status'), 'file' => $newName, // Save the file name or path in the database
         ]);
 
         // Redirect to a success page or display a success message

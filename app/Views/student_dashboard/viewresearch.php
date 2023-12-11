@@ -54,7 +54,7 @@
                     </div>
                     <div class="tab-pane fade " id="pills-profile2" role="tabpanel" aria-labelledby="pills-home-tab2">
                         <div class="card mb-0">
-                            <div class="card-body"> file here</div>
+                            <div class="card-body"> <iframe src="<?= base_url('uploads/' . $output['file']) ?>" width="100%" height="600px"></iframe></div>
                         </div>
                     </div>
                     <div class="tab-pane fade " id="pills-contact2" role="tabpanel" aria-labelledby="pills-home-tab2">

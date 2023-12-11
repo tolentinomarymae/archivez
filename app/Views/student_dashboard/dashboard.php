@@ -77,7 +77,6 @@
                           <div id="lineChart"></div>
                       </div>-->
                       <!-- Add this where you want the chart to appear -->
-                      <!-- Add this where you want the chart to appear -->
                       <div class="my-4">
                           <canvas id="lineChart" width="400" height="100"></canvas>
                       </div>
