@@ -221,22 +221,7 @@
                                              <td><?= $res['file'] ?></td>
                                              <td>
                                                  <a href="<?= base_url('researchdetails/' . $res['id']) ?>" class="eyebtn"><i class="fe fe-eye"></i></a>
-                                                 <button type="button" class="bookmarkbtn" data-toggle="modal" data-target="#editresearchmodal" onclick="openEditResearchModal( 
-                                                        <?= $res['id']; ?>, 
-                                                        '<?= $res['researchtitle']; ?>' , 
-                                                        '<?= $res['submittedto']; ?>' , 
-                                                        '<?= $res['subject']; ?>' , 
-                                                        '<?= $res['author']; ?>' , 
-                                                        '<?= $res['idnumber']; ?>' , 
-                                                        '<?= $res['gradelevel']; ?>' , 
-                                                        '<?= $res['section']; ?>' , 
-                                                        '<?= $res['uploaddate']; ?>' , 
-                                                        '<?= $res['abstract']; ?>' , 
-                                                        '<?= $res['keywords']; ?>' , 
-                                                        '<?= $res['citation']; ?>' , 
-                                                        '<?= $res['status']; ?>' , 
-                                                        '<?= $res['file']; ?>' 
-                                                        )"><i class=" fe fe-edit"></i></button>
+
 
                                                  <a href="<?= base_url('archive/' . $res['id']) ?>" class="archive"><i class="fe fe-archive"></i></a>
 
@@ -330,24 +315,31 @@
      <style>
          .modal-dialog {
              max-width: 80% !important;
-             /* The !important is used to override any other styles that might be applied */
          }
 
-         /* Set a fixed height for the cells */
          .table.datatables td,
          .table.datatables th {
              max-height: 100px;
-             /* Adjust the height as needed */
              overflow: hidden;
              text-overflow: ellipsis;
              white-space: nowrap;
          }
 
-         /* Set a fixed height for the table body */
          .table.datatables tbody {
              max-height: 300px;
-             /* Adjust the height as needed */
              overflow-y: auto;
+         }
+
+         .table.datatables td:nth-child(10) {
+             max-width: 300px;
+         }
+
+         .table.datatables td:nth-child(11) {
+             max-width: 300px;
+         }
+
+         .table.datatables td:nth-child(12) {
+             max-width: 300px;
          }
 
          .eyebtn:hover {

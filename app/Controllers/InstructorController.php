@@ -67,6 +67,17 @@ class InstructorController extends BaseController
         return view('instructordashboardview/instructordashboard', $data);
     }
 
+    public function test()
+    {
+        if (!session()->get('isLoggedIn')) {
+            return redirect()->to('/logins');
+        } else {
+            $data = [
+                'output' => $this->output->findAll()
+            ];
+            return view('test', $data);
+        }
+    }
 
     public function instructorresearchpapers()
     {
@@ -82,7 +93,9 @@ class InstructorController extends BaseController
 
     public function researchdetails($id)
     {
-        $output = $this->output->find($id);
+        if (!session()->get('isLoggedIn')) {
+            return redirect()->to('/logins');
+        } else $output = $this->output->find($id);
 
         if ($output) {
             // Get the total upvotes for the research
@@ -102,5 +115,66 @@ class InstructorController extends BaseController
         } else {
             return redirect()->to('/instructorresearchpapers');
         }
+    }
+    public function inserttest()
+    {
+        $secti = $this->secti->findAll();
+        $adminmanage = $this->adminmanage->findAll();
+        $subject = $this->subject->findAll();
+
+        if (!session()->get('isLoggedIn')) {
+            return redirect()->to('/logins');
+        } else {
+            $data = [
+                'output' => $this->output->findAll()
+            ];
+            return view('studentdashboardview/addresearch', ['secti' => $secti, 'subject' => $subject, 'adminmanage' => $adminmanage],   $data);
+        }
+    }
+    public function addnewresearch()
+    {
+        $userId = session()->get('id');
+
+        $validation = $this->validate([
+            'researchtitle' => 'required',
+            'submittedto' => 'required',
+            'subject' => 'required',
+            'author' => 'required',
+            'idnumber' => 'required',
+            'gradelevel' => 'required',
+            'section' => 'required',
+            'uploaddate' => 'required',
+            'abstract' => 'required',
+            'keywords' => 'required',
+            'citation' => 'required',
+            'status' => 'required',
+            'file' => 'uploaded[file]|max_size[file,1024]|ext_in[file,pdf]'
+        ]);
+
+        if (!$validation) {
+            return view('studentdashboardview/addresearch', ['validation' => $this->validator]);
+        }
+        $file = $this->request->getFile('file');
+
+        $newName = $file->getRandomName();
+        $file->move('./uploads', $newName);
+        $this->output->save([
+            'user_id' => $userId,
+            'researchtitle' => $this->request->getPost('researchtitle'),
+            'submittedto' => $this->request->getPost('submittedto'),
+            'subject' => $this->request->getPost('subject'),
+            'author' => $this->request->getPost('author'),
+            'idnumber' => $this->request->getPost('idnumber'),
+            'gradelevel' => $this->request->getPost('gradelevel'),
+            'section' => $this->request->getPost('section'),
+            'uploaddate' => $this->request->getPost('uploaddate'),
+            'abstract' => $this->request->getPost('abstract'),
+            'keywords' => $this->request->getPost('keywords'),
+            'citation' => $this->request->getPost('citation'),
+            'status' => $this->request->getPost('status'),
+
+            'file' => $newName,
+        ]);
+        return redirect()->to('/researchpapers')->with('success', 'Research added successfully');
     }
 }

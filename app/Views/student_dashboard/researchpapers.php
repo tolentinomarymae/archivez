@@ -76,20 +76,28 @@
     </div> <!-- .container-fluid -->
 
     <style>
-        /* Set a fixed height for the cells */
+        .table.datatables td:nth-child(10) {
+            max-width: 300px;
+        }
+
+        .table.datatables td:nth-child(11) {
+            max-width: 300px;
+        }
+
+        .table.datatables td:nth-child(12) {
+            max-width: 300px;
+        }
+
         .table.datatables td,
         .table.datatables th {
             max-height: 100px;
-            /* Adjust the height as needed */
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
         }
 
-        /* Set a fixed height for the table body */
         .table.datatables tbody {
             max-height: 300px;
-            /* Adjust the height as needed */
             overflow-y: auto;
         }
 
@@ -132,6 +140,7 @@
             font-size: 23px;
             border: none;
             border-radius: 5px;
+            margin-right: 10px;
             background-color: transparent;
         }
 
@@ -157,6 +166,9 @@
             background-color: transparent;
         }
 
+        .archive:hover {
+            text-decoration: none !important;
+        }
 
         .archive:active {
             background-color: #ff0000;

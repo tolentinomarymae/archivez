@@ -1,14 +1,7 @@
-<main role="main" class="main-content">
-    <div class="container-fluid">
-        <div class="row justify-content-center">
-            <div class="col-12">
-                <h2 class="mb-2 page-title">Research Outputs</h2>
-
-                <p class="card-text">These are the research paper uploaded by the students! </p>
-
-                <div class="row my-4">
                     <!-- Small table -->
                     <div class="col-md-12">
+                        <a href="/inserttest" class="btn btn-primary">Add New</a>
+
                         <div class="card shadow">
                             <div class="card-body">
                                 <!-- table -->
@@ -67,124 +60,36 @@
                             </div>
                         </div>
                     </div> <!-- simple table -->
-                </div> <!-- end section -->
-            </div> <!-- .col-12 -->
-        </div> <!-- .row -->
-    </div> <!-- .container-fluid -->
-    <!-- Add Product Modal -->
-    <div class="modal fade" id="addcommentmodal" role="dialog" aria-labelledby="addcommentmodalLabel" aria-hidden="true">
-        <br>
-        <div class="modal-dialog modal-dialog-centered" style="z-index: 10000;">
+                    </div> <!-- end section -->
+                    </div> <!-- .col-12 -->
+                    </div> <!-- .row -->
+                    </div> <!-- .container-fluid -->
+                    <!-- Add Product Modal -->
+                    <div class="modal fade" id="addcommentmodal" role="dialog" aria-labelledby="addcommentmodalLabel" aria-hidden="true">
+                        <br>
+                        <div class="modal-dialog modal-dialog-centered" style="z-index: 10000;">
 
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="addcommentmodalLabel">Add Comment</h5>
-                </div>
-                <div class="modal-body">
-                    <form action="/addcomment" method="post">
-                        <div class="mb-3">
-                            <label for="commentedby" class="form-label">Commented By:</label>
-                            <input type="text" name="commentedby" id="commentedby" placeholder="Full Name" class="form-control">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="addcommentmodalLabel">Add Comment</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <form action="/addcomment" method="post">
+                                        <div class="mb-3">
+                                            <label for="commentedby" class="form-label">Commented By:</label>
+                                            <input type="text" name="commentedby" id="commentedby" placeholder="Full Name" class="form-control">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="comment" class="form-label">Comment:</label>
+                                            <textarea name="comment" id="comment" placeholder="Full Name" class="form-control"></textarea>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
                         </div>
-                        <div class="mb-3">
-                            <label for="comment" class="form-label">Comment:</label>
-                            <textarea name="comment" id="comment" placeholder="Full Name" class="form-control"></textarea>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-
-        </div>
-    </div>
-    <style>
-        .table.datatables td,
-        .table.datatables th {
-            max-height: 100px;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-        }
-
-        .table.datatables tbody {
-            max-height: 300px;
-            overflow-y: auto;
-        }
-
-        .table.datatables td:nth-child(10) {
-            max-width: 300px;
-        }
-
-        .table.datatables td:nth-child(11) {
-            max-width: 300px;
-        }
-
-        .table.datatables td:nth-child(12) {
-            max-width: 300px;
-        }
-
-        .eyebtn:hover {
-            text-decoration: none !important;
-        }
-
-        .eyebtn {
-            color: #b06dff;
-            text-align: center;
-            display: inline-block;
-            font-size: 23px;
-            border: none;
-            margin-right: 10px;
-            border-radius: 5px;
-            background-color: transparent;
-        }
-
-
-        .eyebtn:active {
-            background-color: #b06dff;
-            transform: translateY(2px);
-            color: white;
-        }
-
-        .bookmarkbtn {
-            color: #ffd942;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 23px;
-            border: none;
-            border-radius: 5px;
-            background-color: transparent;
-        }
-
-
-        .bookmarkbtn:active {
-            background-color: #ffd942;
-            transform: translateY(2px);
-            color: white;
-        }
-
-        .bookmarkbtn:hover {
-            text-decoration: none !important;
-        }
-
-        .archive {
-            color: #ff0000;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 23px;
-            border: none;
-            border-radius: 5px;
-            background-color: transparent;
-        }
-
-
-        .archive:active {
-            background-color: #ff0000;
-            transform: translateY(2px);
-            color: white;
-        }
-    </style>
+                    </div>

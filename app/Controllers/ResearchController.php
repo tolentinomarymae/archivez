@@ -31,7 +31,6 @@ class ResearchController extends BaseController
     public function insertresearch()
     {
 
-        // Fetch sections from the database
         $secti = $this->secti->findAll();
         $adminmanage = $this->adminmanage->findAll();
         $subject = $this->subject->findAll();
@@ -60,10 +59,8 @@ class ResearchController extends BaseController
     }
     public function addnewresearch()
     {
-        // Get the user ID from the session
         $userId = session()->get('id');
 
-        // Validate the form data
         $validation = $this->validate([
             'researchtitle' => 'required',
             'submittedto' => 'required',
@@ -77,22 +74,16 @@ class ResearchController extends BaseController
             'keywords' => 'required',
             'citation' => 'required',
             'status' => 'required',
-            'file' => 'uploaded[file]|max_size[file,1024]|ext_in[file,pdf]'
-
+            'file' => 'uploaded[file]|max_size[file,20480]|ext_in[file,pdf]'
         ]);
 
         if (!$validation) {
-            // Validation failed, return to the form with errors
             return view('studentdashboardview/addresearch', ['validation' => $this->validator]);
         }
-
-        // Handle file upload
         $file = $this->request->getFile('file');
 
-        // Move the uploaded file to the desired directory (you need to create this directory)
         $newName = $file->getRandomName();
         $file->move('./uploads', $newName);
-        // If validation passes, insert the data into the database
         $this->output->save([
             'user_id' => $userId,
             'researchtitle' => $this->request->getPost('researchtitle'),
@@ -106,15 +97,14 @@ class ResearchController extends BaseController
             'abstract' => $this->request->getPost('abstract'),
             'keywords' => $this->request->getPost('keywords'),
             'citation' => $this->request->getPost('citation'),
-            'status' => $this->request->getPost('status'), 'file' => $newName, // Save the file name or path in the database
-        ]);
+            'status' => $this->request->getPost('status'),
 
-        // Redirect to a success page or display a success message
+            'file' => $newName,
+        ]);
         return redirect()->to('/researchpapers')->with('success', 'Research added successfully');
     }
     public function viewresearchpaper()
     {
-        // Check if the user is logged in
         if (!session()->get('isLoggedIn')) {
             return redirect()->to('/logins');
         }
@@ -125,15 +115,12 @@ class ResearchController extends BaseController
     }
     public function myresearch()
     {
-        // Check if the user is logged in
         if (!session()->get('isLoggedIn')) {
             return redirect()->to('/logins');
         }
 
-        // Get the currently logged-in user's ID
         $userId = session()->get('id');
 
-        // Fetch research papers uploaded by the logged-in user
         $data = [
             'output' => $this->output->where('user_id', $userId)->findAll()
         ];
@@ -143,7 +130,10 @@ class ResearchController extends BaseController
 
     public function researchdetails($id)
     {
-        // Get the research details
+        if (!session()->get('isLoggedIn')) {
+            return redirect()->to('/logins');
+        }
+
         $output = $this->output->find($id);
 
         if ($output) {

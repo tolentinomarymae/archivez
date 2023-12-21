@@ -68,10 +68,8 @@
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label for="status">Status</label>
-                                        <select name="status" id="status" class="form-control">
-                                            <option value="Approved">Approved</option>
-                                            <option value="Under Revision">Under Revision</option>
-                                        </select>
+                                        <input type="type" class="form-control" name="status" id="status" placeholder="Status">
+
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="file">Upload PDF</label>

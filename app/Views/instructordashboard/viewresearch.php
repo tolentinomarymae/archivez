@@ -1,10 +1,5 @@
 <main role="main" class="main-content">
-    <nav aria-label="breadcrumb" class="custom-breadcrumb">
-        <ol class="breadcrumb justify-content-end">
-            <li class="breadcrumb-item"><a href="/researchpapers">Research Papers</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Research Details</li>
-        </ol>
-    </nav>
+
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12 mb-4">
@@ -45,7 +40,7 @@
                                         <div class="col-md-12">
                                             <p>Keywords: <strong><i><?= $output['keywords'] ?></i></strong></p>
                                             <p class="mb-4">Citation: <strong><i><?= $output['citation'] ?></i></strong></p>
-                                            <p class="mb-4">Abstract: <strong><?= $output['abstract'] ?></strong></p><?= $output['file'] ?>
+                                            <p class="mb-4">Abstract: <strong><?= $output['abstract'] ?></strong>
                                         </div>
                                     </div> <!-- /.card -->
                                 </div>

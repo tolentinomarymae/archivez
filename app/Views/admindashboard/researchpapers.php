@@ -72,21 +72,29 @@
     </div> <!-- .container-fluid -->
 
     <style>
-        /* Set a fixed height for the cells */
         .table.datatables td,
         .table.datatables th {
             max-height: 100px;
-            /* Adjust the height as needed */
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
         }
 
-        /* Set a fixed height for the table body */
         .table.datatables tbody {
             max-height: 300px;
-            /* Adjust the height as needed */
             overflow-y: auto;
+        }
+
+        .table.datatables td:nth-child(10) {
+            max-width: 300px;
+        }
+
+        .table.datatables td:nth-child(11) {
+            max-width: 300px;
+        }
+
+        .table.datatables td:nth-child(12) {
+            max-width: 300px;
         }
 
         .btn-primary {

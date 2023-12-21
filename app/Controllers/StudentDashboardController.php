@@ -57,28 +57,21 @@ class StudentDashboardController extends BaseController
     }
     public function studentprofile()
     {
-        // Check if the user is logged in
         if (!session()->get('isLoggedIn')) {
             return redirect()->to('/logins');
         }
 
-        // Get the currently logged-in user's ID
         $userId = session()->get('id');
 
-        // Fetch research papers uploaded by the logged-in user
         $userResearch = $this->output->where('user_id', $userId)->findAll();
         $prof = $this->prof->where('user_id', $userId)->findAll();
 
-
-        // Count the total number of research papers uploaded by the user
         $totalUserResearch = count($userResearch);
 
-        // Initialize counters for upvotes, comments, and bookmarks
         $totalUpvotes = 0;
         $totalComments = 0;
         $totalBookmarks = 0;
 
-        // Iterate through each research paper to calculate totals
         foreach ($userResearch as $research) {
             $totalUpvotes += $this->output->where('user_id', $research['id'])->countAllResults();
             $totalComments += $this->output->where('user_id', $research['id'])->countAllResults();

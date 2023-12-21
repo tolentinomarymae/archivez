@@ -20,7 +20,6 @@
                          </span>
                      </a>
                      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                         <a class="dropdown-item" href="/instructorprofile">Profile</a>
                          <a class="dropdown-item" href="/">Logout</a>
                      </div>
                  </li>

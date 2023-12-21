@@ -73,7 +73,13 @@ $routes->post('managesubjects/delete/(:num)', 'AdminController::deletesubject/$1
 $routes->get('/instuctordashboard', 'InstructorController::instructordashboard');
 $routes->get('/instructorresearchpapers', 'InstructorController::instructorresearchpapers');
 $routes->get('/instructorresearchdetails/(:any)', 'InstructorController::researchdetails/$1');
+$routes->get('/test', 'InstructorController::test');
+$routes->post('/addresearch', 'ResearchController::addnewresearch');
+
+
 
 // comment
 $routes->post('/addcomment', 'ResearchController::addcomment');
 $routes->get('upvoteResearch/(:num)', 'ResearchController::upvoteResearch/$1');
+$routes->get('/inserttest', 'InstructorController::inserttest');
+$routes->post('/addresearch', 'InstructorController::addnewresearch');
